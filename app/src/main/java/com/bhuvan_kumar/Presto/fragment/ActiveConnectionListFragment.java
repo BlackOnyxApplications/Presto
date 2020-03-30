@@ -25,9 +25,7 @@ import com.bhuvan_kumar.Presto.service.CommunicationService;
 import com.bhuvan_kumar.Presto.widget.EditableListAdapter;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-/**
+ import androidx.annotation.Nullable;/**
  * created by: Bk
  * date: 4/7/19 10:59 PM
  */

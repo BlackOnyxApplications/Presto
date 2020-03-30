@@ -12,8 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
+ import androidx.annotation.Nullable;import androidx.appcompat.app.AlertDialog;
 
 import com.bhuvan_kumar.Presto.app.EditableListFragment;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;

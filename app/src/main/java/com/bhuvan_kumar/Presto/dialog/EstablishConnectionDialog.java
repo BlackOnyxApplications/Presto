@@ -3,8 +3,7 @@ package com.bhuvan_kumar.Presto.dialog;
 import android.app.Activity;
 import android.content.DialogInterface;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
+ import androidx.annotation.Nullable;import androidx.appcompat.app.AlertDialog;
 
 import com.bhuvan_kumar.Presto.app.ProgressDialog;
 import com.bhuvan_kumar.Presto.callback.OnDeviceSelectedListener;

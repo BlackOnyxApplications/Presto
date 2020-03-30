@@ -2,9 +2,7 @@ package com.bhuvan_kumar.Presto.app;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-
-import com.bhuvan_kumar.Presto.R;
+ import androidx.annotation.Nullable;import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.adapter.ImageListAdapter;
 import com.bhuvan_kumar.Presto.widget.GroupEditableListAdapter;
 

@@ -7,8 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
+ import androidx.annotation.Nullable;import androidx.collection.ArrayMap;
 
 import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.adapter.ImageListAdapter;

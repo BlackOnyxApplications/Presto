@@ -26,9 +26,7 @@ import com.bhuvan_kumar.Presto.object.TransferGroup;
 import com.bhuvan_kumar.Presto.widget.EditableListAdapter;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-/**
+ import androidx.annotation.Nullable;/**
  * created by: Bk
  * date: 06.04.2018 12:58
  */

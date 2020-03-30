@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatCheckBox;
+ import androidx.annotation.Nullable;import androidx.appcompat.widget.AppCompatCheckBox;
 
 import com.bhuvan_kumar.Presto.ui.callback.IconSupport;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;

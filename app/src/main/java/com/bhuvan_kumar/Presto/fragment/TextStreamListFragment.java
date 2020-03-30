@@ -13,8 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
+ import androidx.annotation.Nullable;import androidx.recyclerview.widget.RecyclerView;
 
 import com.bhuvan_kumar.Presto.app.EditableListFragment;
 import com.bhuvan_kumar.Presto.app.EditableListFragmentImpl;

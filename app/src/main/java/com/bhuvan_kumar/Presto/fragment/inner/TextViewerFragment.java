@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.bhuvan_kumar.Presto.ui.callback.IconSupport;
+ import androidx.annotation.Nullable;import com.bhuvan_kumar.Presto.ui.callback.IconSupport;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;
 import com.bhuvan_kumar.Presto.R;
 import com.genonbeta.android.framework.app.Fragment;

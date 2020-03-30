@@ -2,6 +2,8 @@
 <resources>
     <!-- Launcher related -->
     <!--    orange: f68f38-->
+<!--    yellow: ffff00-->
+<!--    red: ffff5349-->
     <color name="ic_launcher_background">#ffff5349</color>
     <!-- Launcher related end -->
 

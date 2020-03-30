@@ -18,8 +18,7 @@ import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.service.CommunicationService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
+ import androidx.annotation.Nullable;import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.transition.TransitionManager;

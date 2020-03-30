@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.bhuvan_kumar.Presto.GlideApp;
+ import androidx.annotation.Nullable;import com.bhuvan_kumar.Presto.GlideApp;
 import com.bhuvan_kumar.Presto.config.AppConfig;
 import com.bhuvan_kumar.Presto.database.AccessDatabase;
 import com.bhuvan_kumar.Presto.exception.NotReadyException;

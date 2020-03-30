@@ -20,10 +20,4 @@
         android:paddingRight="10dp"
         android:text="@string/text_unknown" />
 
-    <TextView
-        android:id="@+id/header_default_device_version_text"
-        style="@style/TextAppearance.Secondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
 </LinearLayout>

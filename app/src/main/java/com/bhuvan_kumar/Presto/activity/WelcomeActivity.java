@@ -220,10 +220,10 @@ public class WelcomeActivity extends Activity
             ImageView imageView = mProfileView.findViewById(R.id.layout_profile_picture_image_default);
             ImageView editImageView = mProfileView.findViewById(R.id.layout_profile_picture_image_preferred);
             TextView deviceNameText = mProfileView.findViewById(R.id.header_default_device_name_text);
-            TextView versionText = mProfileView.findViewById(R.id.header_default_device_version_text);
+//            TextView versionText = mProfileView.findViewById(R.id.header_default_device_version_text);
 
             deviceNameText.setText(localDevice.nickname);
-            versionText.setText(localDevice.versionName);
+//            versionText.setText(localDevice.versionName);
             loadProfilePictureInto(localDevice.nickname, imageView);
 
             editImageView.setOnClickListener(new View.OnClickListener()

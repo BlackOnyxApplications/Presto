@@ -8,8 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.viewpager.widget.ViewPager;
+ import androidx.annotation.Nullable;import androidx.viewpager.widget.ViewPager;
 
 import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;

@@ -17,13 +17,13 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.bhuvan_kumar.Presto.GlideApp;
 import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.config.Keyword;
 import com.bhuvan_kumar.Presto.ui.UIConnectionUtils;
 import com.bhuvan_kumar.Presto.util.AppUtils;
 import com.bhuvan_kumar.Presto.util.CommunicationBridge;
 import com.genonbeta.CoolSocket.CoolSocket;
-import com.bhuvan_kumar.Presto.GlideApp;
 import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.object.NetworkDevice;
 import com.bhuvan_kumar.Presto.object.TextStreamObject;

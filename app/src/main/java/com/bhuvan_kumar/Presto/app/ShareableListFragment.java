@@ -6,8 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
+ import androidx.annotation.Nullable;import androidx.appcompat.widget.SearchView;
 
 import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.object.Shareable;

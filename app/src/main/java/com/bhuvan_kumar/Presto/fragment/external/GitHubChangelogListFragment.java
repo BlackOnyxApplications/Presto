@@ -8,9 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.bhuvan_kumar.Presto.config.AppConfig;
+ import androidx.annotation.Nullable;import com.bhuvan_kumar.Presto.config.AppConfig;
 import com.bhuvan_kumar.Presto.util.AppUtils;
 import com.bhuvan_kumar.Presto.R;
 import com.genonbeta.android.framework.app.DynamicRecyclerViewFragment;

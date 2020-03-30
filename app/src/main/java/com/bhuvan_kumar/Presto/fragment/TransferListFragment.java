@@ -13,8 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
+ import androidx.annotation.Nullable;import androidx.appcompat.app.AlertDialog;
 
 import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.app.EditableListFragment;

@@ -6,9 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import com.genonbeta.android.framework.app.Fragment;
+ import androidx.annotation.Nullable;import com.genonbeta.android.framework.app.Fragment;
 
 public class CurrentNetworkConnectorFragment extends Fragment
 {

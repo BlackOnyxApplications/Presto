@@ -93,7 +93,7 @@ public class HomeActivity
         if (mHomeFragment.onBackPressed())
             return;
         if ((System.currentTimeMillis() - mExitPressTime) < 2000)
-            super.onBackPressed();
+            moveTaskToBack(true);
         else {
             mExitPressTime = System.currentTimeMillis();
             Toast.makeText(this, R.string.mesg_secureExit, Toast.LENGTH_SHORT).show();

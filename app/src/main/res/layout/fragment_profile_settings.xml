@@ -58,7 +58,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"/>
                 <TextView
-                    style="@style/TextAppearance.Secondary"
+                    style="@style/TextAppearance.Primary.Big.SingleLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
@@ -83,7 +83,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"/>
                 <TextView
-                    style="@style/TextAppearance.Secondary"
+                    style="@style/TextAppearance.Primary.Big.SingleLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
@@ -108,7 +108,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"/>
                 <TextView
-                    style="@style/TextAppearance.Secondary"
+                    style="@style/TextAppearance.Primary.Big.SingleLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
@@ -133,7 +133,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"/>
                 <TextView
-                    style="@style/TextAppearance.Secondary"
+                    style="@style/TextAppearance.Primary.Big.SingleLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"

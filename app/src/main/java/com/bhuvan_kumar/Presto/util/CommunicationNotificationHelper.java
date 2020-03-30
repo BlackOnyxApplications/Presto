@@ -5,8 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
+ import androidx.annotation.Nullable;import androidx.core.app.NotificationCompat;
 
 import com.bhuvan_kumar.Presto.config.Keyword;
 import com.genonbeta.CoolSocket.CoolTransfer;

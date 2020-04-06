@@ -7,6 +7,7 @@
         android:name=".App"
         android:allowBackup="true"
         android:appComponentFactory="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:fullBackupContent="true"
         android:icon="@drawable/presto_p_png_no_shadow"
         android:label="@string/text_appName"
@@ -14,6 +15,10 @@
         android:theme="@style/Theme.TrebleShot"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6336656817224230~2201465547"/>
+
         <activity
             android:name=".activity.SplashActivity"
             android:label="@string/text_appName"
@@ -138,6 +143,27 @@
             android:label="@string/text_webShare"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
 
+        <activity
+            android:name=".wordsearch.features.SplashScreenActivity">
+        </activity>
+        <activity android:name=".wordsearch.features.FullscreenActivity">
+        </activity>
+        <activity android:name=".wordsearch.features.gamehistory.GameHistoryActivity">
+        </activity>
+        <activity android:name=".wordsearch.features.gameover.GameOverActivity">
+        </activity>
+        <activity
+            android:name=".wordsearch.features.gameplay.GamePlayActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar">
+        </activity>
+        <activity
+            android:name=".wordsearch.features.mainmenu.MainMenuActivity">
+        </activity>
+        <activity android:name=".wordsearch.features.settings.AppCompatPreferenceActivity">
+        </activity>
+        <activity android:name=".wordsearch.features.settings.SettingsActivity">
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -210,7 +236,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

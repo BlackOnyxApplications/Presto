@@ -323,7 +323,7 @@
     <string name="butn_singleRow">Single row</string>
     <string name="butn_groupBy">Group by</string>
     <string name="text_photo">Photo</string>
-    <string name="text_groupByNothing">Nothing</string>
+    <string name="text_groupByNothing">Default</string>
     <string name="text_groupByDate">Date</string>
     <string name="text_groupByAlbum">Album</string>
     <string name="text_groupByArtist">Artist</string>
@@ -338,6 +338,7 @@
     <string name="text_connect">Connect</string>
     <string name="butn_shareWithOtherApps">Share with other apps</string>
     <string name="butn_startHotspot">Set up hotspot</string>
+    <string name="butn_showQRnIP">Show QR (Receiver)</string>
     <string name="butn_stopHotspot">Stop hotspot</string>
     <string name="text_easyDiscoveryHelp">Scan this if both devices are on the same network</string>
     <string name="text_scanQRWifiRequired">To connect to devices, Wi-Fi should be turned on</string>
@@ -376,7 +377,7 @@
     <string name="text_transfers">Transfers</string>
     <string name="butn_connectionDetails">Connections details</string>
     <string name="butn_useKnownDevice">Use known devices</string>
-    <string name="butn_scanQrCode">Scan QR Code</string>
+    <string name="butn_scanQrCode">Scan QR Code (Sender)</string>
     <string name="butn_useExistingNetwork">Use existing networks</string>
     <string name="butn_feedbackContact">Feedback &amp; contact</string>
     <string name="text_startHotspot" translatable="false">@string/butn_startHotspot</string>
@@ -396,7 +397,7 @@
     <string name="text_send">Send</string>
     <string name="butn_send" translatable="false">@string/text_send</string>
     <string name="text_connectionHelp">Choose an option to connect to the other device. For instance, if the other device is showing a QR code, use Scan QR code option.</string>
-    <string name="ques_needHelp">Need a helping hand?</string>
+    <string name="ques_needHelp">Help setting things up?</string>
     <string name="text_connectionWizard">Connection wizard</string>
     <string name="ques_connectionWizardIsOtherDeviceReady">Have you just set things up on the other device?</string>
     <string name="ques_connectionWizardIsThereQRCode">Do you see a QR code (barcode) on its screen?</string>
@@ -512,5 +513,14 @@
     <string name="pref_grayscale">grayscale</string>
     <string name="grayscale">Grayscale</string>
     <string name="game_data_desc">:gridSize Grid, :wordCount Words</string>
+
+
+<!--    Admob ids-->
+    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+
+    <string name="fb_home_ad_unit">2296519250644594_2296520103977842</string>
 
 </resources>

@@ -5,14 +5,21 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
- import androidx.annotation.Nullable;import androidx.recyclerview.widget.RecyclerView;
+ import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bhuvan_kumar.Presto.app.EditableListFragment;
 import com.bhuvan_kumar.Presto.app.EditableListFragmentImpl;
@@ -30,8 +37,17 @@ import com.bhuvan_kumar.Presto.service.CommunicationService;
 import com.bhuvan_kumar.Presto.widget.GroupEditableListAdapter;
 import com.genonbeta.android.database.SQLQuery;
 import com.genonbeta.android.framework.widget.PowerfulActionMode;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.formats.UnifiedNativeAdView;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -43,6 +59,8 @@ public class TransferGroupListFragment
         extends GroupEditableListFragment<TransferGroupListAdapter.PreloadedGroup, GroupEditableListAdapter.GroupViewHolder, TransferGroupListAdapter>
         implements IconSupport, TitleSupport
 {
+    private UnifiedNativeAd nativeAd;
+    private Runnable mTicker = null;
     private SQLQuery.Select mSelect;
     private IntentFilter mFilter = new IntentFilter();
     private BroadcastReceiver mReceiver = new BroadcastReceiver()
@@ -79,11 +97,89 @@ public class TransferGroupListFragment
         setDefaultPaddingDecorationSize(getResources().getDimension(R.dimen.padding_list_content_parent_layout));
     }
 
+    private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
+
+        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+        adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+
+        ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
+
+        if (nativeAd.getIcon() == null) {
+            adView.getIconView().setVisibility(View.GONE);
+        } else {
+            ((ImageView) adView.getIconView()).setImageDrawable(
+                    nativeAd.getIcon().getDrawable());
+            adView.getIconView().setVisibility(View.VISIBLE);
+        }
+
+        adView.setNativeAd(nativeAd);
+
+    }
+
+    private void refreshAd(View view) {
+        Context context = getActivity();
+        if(context!=null) {
+            try {
+                List<Fragment> fragments = getFragmentManager() != null ? getFragmentManager().getFragments() : new ArrayList<Fragment>();
+                if(fragments.size() > 1) {
+                    AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.transfer_ad_unit_id));
+                    builder.forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                        @Override
+                        public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                            if (nativeAd != null) {
+                                nativeAd.destroy();
+                            }
+                            nativeAd = unifiedNativeAd;
+                            FrameLayout frameLayout = view.findViewById(R.id.fl_adplaceholder);
+                                UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater()
+                                        .inflate(R.layout.home_page_custom_ad, null);
+                                populateUnifiedNativeAdView(unifiedNativeAd, adView);
+                                frameLayout.removeAllViews();
+                                frameLayout.addView(adView);
+                        }
+                    });
+
+                    AdLoader adLoader = builder.withAdListener(new AdListener() {
+                        @Override
+                        public void onAdFailedToLoad(int errorCode) {
+                            Log.e(getTag(), "errorCode: " + errorCode);
+                        }
+                    }).build();
+                    adLoader.loadAd(new AdRequest.Builder().build());
+                }
+            } catch (Exception e){
+                Log.e(TAG, e.toString());
+            }
+        }
+    }
+
     @Override
     protected RecyclerView onListView(View mainContainer, ViewGroup listViewContainer)
     {
         View adaptedView = getLayoutInflater().inflate(R.layout.layout_transfer_group_list, null, false);
         ((ViewGroup) mainContainer).addView(adaptedView);
+
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+
+        try {
+            Handler mHandler = new Handler();
+            mTicker = new Runnable() {
+                @Override
+                public void run() {
+                    if(isAdded()) refreshAd(adaptedView);
+                    mHandler.postDelayed(mTicker, 1000 * 12);
+                }
+            };
+            mHandler.postDelayed(mTicker, 1000 * 12);
+
+            if(isAdded()) refreshAd(adaptedView);
+        }
+        catch (Exception ex){
+            Log.e(getTag(), " " + ex.toString());
+        }
 
         return super.onListView(mainContainer, (FrameLayout) adaptedView.findViewById(R.id.fragmentContainer));
     }

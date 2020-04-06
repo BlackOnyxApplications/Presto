@@ -67,34 +67,6 @@
                         android:text="@string/ques_needHelp" />
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/connection_option_hotspot"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?rectSelector"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"
-                        app:srcCompat="@drawable/ic_wifi_tethering_white_24dp"
-                        app:tint="?colorSecondary" />
-
-                    <TextView
-                        style="@style/TextAppearance.Primary.SingleLine"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/butn_startHotspot" />
-
-                </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/connection_option_network"
                     android:layout_width="match_parent"
@@ -119,6 +91,33 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/butn_useExistingNetwork" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection_option_hotspot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?rectSelector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        app:srcCompat="@drawable/ic_wifi_tethering_white_24dp"
+                        app:tint="?colorSecondary" />
+
+                    <TextView
+                        style="@style/TextAppearance.Primary.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/butn_showQRnIP" />
 
                 </LinearLayout>
 

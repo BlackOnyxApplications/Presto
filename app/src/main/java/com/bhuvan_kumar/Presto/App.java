@@ -16,6 +16,9 @@ import com.bhuvan_kumar.Presto.util.PreferenceUtils;
 import com.bhuvan_kumar.Presto.util.UpdateUtils;
 import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.object.NetworkDevice;
+import com.bhuvan_kumar.Presto.wordsearch.di.component.AppComponent;
+import com.bhuvan_kumar.Presto.wordsearch.di.component.DaggerAppComponent;
+import com.bhuvan_kumar.Presto.wordsearch.di.modules.AppModule;
 import com.genonbeta.android.framework.preference.DbSharablePreferences;
 
 /**
@@ -27,7 +30,7 @@ public class App extends Application
 {
     public static final String TAG = App.class.getSimpleName();
     public static final String ACTION_REQUEST_PREFERENCES_SYNC = "com.genonbeta.intent.action.REQUEST_PREFERENCES_SYNC";
-
+    AppComponent mAppComponent;
     private BroadcastReceiver mReceiver = new BroadcastReceiver()
     {
         @Override
@@ -50,6 +53,7 @@ public class App extends Application
 
         initializeSettings();
         getApplicationContext().registerReceiver(mReceiver, new IntentFilter(ACTION_REQUEST_PREFERENCES_SYNC));
+        mAppComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
 
 //        if (!Keyword.Flavor.googlePlay.equals(AppUtils.getBuildFlavor())
 //                && !UpdateUtils.hasNewVersion(getApplicationContext())
@@ -57,6 +61,10 @@ public class App extends Application
 ////            GitHubUpdater updater = UpdateUtils.getDefaultUpdater(getApplicationContext());
 ////            UpdateUtils.checkForUpdates(getApplicationContext(), updater, false, null);
 //        }
+    }
+
+    public AppComponent getAppComponent() {
+        return mAppComponent;
     }
 
     @Override

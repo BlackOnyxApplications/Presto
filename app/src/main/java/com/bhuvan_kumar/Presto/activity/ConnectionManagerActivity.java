@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import androidx.annotation.IdRes;
@@ -43,6 +45,8 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
 
+import static android.view.View.GONE;
+
 public class ConnectionManagerActivity
         extends Activity
         implements SnackbarSupport
@@ -64,6 +68,7 @@ public class ConnectionManagerActivity
     private CollapsingToolbarLayout mToolbarLayout;
     private ProgressBar mProgressBar;
     private String mTitleProvided;
+    private static String mTitle;
     private RequestType mRequestType = RequestType.RETURN_RESULT;
 
     private final NetworkDeviceSelectedListener mDeviceSelectionListener = new NetworkDeviceSelectedListener()
@@ -92,7 +97,7 @@ public class ConnectionManagerActivity
                     @Override
                     public void updateTaskStopped()
                     {
-                        mProgressBar.setVisibility(View.GONE);
+                        mProgressBar.setVisibility(GONE);
                     }
                 };
 
@@ -178,11 +183,11 @@ public class ConnectionManagerActivity
         mAppBarLayout = findViewById(R.id.app_bar);
         mProgressBar = findViewById(R.id.activity_connection_establishing_progress_bar);
         mToolbarLayout = findViewById(R.id.toolbar_layout);
-        mOptionsFragment = (OptionsFragment) factory.instantiate(getClassLoader(), OptionsFragment.class.getName(), null);
-        mBarcodeConnectFragment = (BarcodeConnectFragment) factory.instantiate(getClassLoader(), BarcodeConnectFragment.class.getName(), null);
-        mHotspotManagerFragment = (HotspotManagerFragment) factory.instantiate(getClassLoader(), HotspotManagerFragment.class.getName(), null);
-        mNetworkManagerFragment = (NetworkManagerFragment) factory.instantiate(getClassLoader(), NetworkManagerFragment.class.getName(), null);
-        mDeviceListFragment = (NetworkDeviceListFragment) factory.instantiate(getClassLoader(), NetworkDeviceListFragment.class.getName(), null);
+        mOptionsFragment = (OptionsFragment) factory.instantiate(getClassLoader(), OptionsFragment.class.getName());
+        mBarcodeConnectFragment = (BarcodeConnectFragment) factory.instantiate(getClassLoader(), BarcodeConnectFragment.class.getName());
+        mHotspotManagerFragment = (HotspotManagerFragment) factory.instantiate(getClassLoader(), HotspotManagerFragment.class.getName());
+        mNetworkManagerFragment = (NetworkManagerFragment) factory.instantiate(getClassLoader(), NetworkManagerFragment.class.getName());
+        mDeviceListFragment = (NetworkDeviceListFragment) factory.instantiate(getClassLoader(), NetworkDeviceListFragment.class.getName());
 
         mFilter.addAction(ACTION_CHANGE_FRAGMENT);
         mFilter.addAction(CommunicationService.ACTION_DEVICE_ACQUAINTANCE);
@@ -201,8 +206,10 @@ public class ConnectionManagerActivity
                     // do nothing
                 }
 
-            if (getIntent().hasExtra(EXTRA_ACTIVITY_SUBTITLE))
+            if (getIntent().hasExtra(EXTRA_ACTIVITY_SUBTITLE)) {
                 mTitleProvided = getIntent().getStringExtra(EXTRA_ACTIVITY_SUBTITLE);
+                mTitle = getIntent().getStringExtra(EXTRA_ACTIVITY_SUBTITLE);
+            }
         }
     }
 
@@ -280,23 +287,23 @@ public class ConnectionManagerActivity
         return Snackbar.make(findViewById(R.id.activity_connection_establishing_content_view), getString(resId, objects), Snackbar.LENGTH_LONG);
     }
 
-    @IdRes
-    public AvailableFragment getShowingFragmentId()
-    {
-        Fragment fragment = getShowingFragment();
-
-        if (fragment instanceof BarcodeConnectFragment)
-            return AvailableFragment.ScanQrCode;
-        else if (fragment instanceof HotspotManagerFragment)
-            return AvailableFragment.CreateHotspot;
-        else if (fragment instanceof NetworkManagerFragment)
-            return AvailableFragment.UseExistingNetwork;
-        else if (fragment instanceof NetworkDeviceListFragment)
-            return AvailableFragment.UseKnownDevice;
-
-        // Probably OptionsFragment
-        return AvailableFragment.Options;
-    }
+//    @IdRes
+//    public AvailableFragment getShowingFragmentId()
+//    {
+//        Fragment fragment = getShowingFragment();
+//
+//        if (fragment instanceof BarcodeConnectFragment)
+//            return AvailableFragment.ScanQrCode;
+//        else if (fragment instanceof HotspotManagerFragment)
+//            return AvailableFragment.CreateHotspot;
+//        else if (fragment instanceof NetworkManagerFragment)
+//            return AvailableFragment.UseExistingNetwork;
+//        else if (fragment instanceof NetworkDeviceListFragment)
+//            return AvailableFragment.UseKnownDevice;
+//
+//        // Probably OptionsFragment
+//        return AvailableFragment.Options;
+//    }
 
     @Nullable
     public Fragment getShowingFragment()

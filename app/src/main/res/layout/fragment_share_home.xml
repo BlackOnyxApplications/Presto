@@ -1,13 +1,104 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.bhuvan_kumar.Presto.fragment.ShareHomeFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_marginBottom="100dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/fl_adplaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
+
+            <com.facebook.ads.NativeAdLayout
+                android:id="@+id/fb_native_ad_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/werb_app_view">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/werb_icon"
+                        android:tint="@color/colorSecondary"
+                        android:src="@drawable/werb_512"/>
+                    <TextView
+                        style="@style/TextAppearance.Primary.Big.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Werb: Verbal app"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_toRightOf="@+id/werb_icon"
+                        android:layout_toEndOf="@+id/werb_icon"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ad"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:id="@+id/game">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@color/colorSecondary"
+                    android:src="@drawable/ic_word_search"/>
+                <TextView
+                    style="@style/TextAppearance.Primary.Big.SingleLine"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Word Find"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:id="@+id/actionsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="8dp"
@@ -15,37 +106,69 @@
         android:paddingLeft="@dimen/short_content_width_padding"
         android:paddingRight="@dimen/short_content_width_padding">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="2dp"
+        android:id="@+id/sendLayoutButton">
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/sendLayoutButton"
-                android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/send"
+                android:tint="@color/colorSecondary"/>
+            <TextView
+                style="@style/TextAppearance.Primary.Big.SingleLine"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="@string/butn_send" />
-
+                android:text="@string/butn_send"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"/>
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
         <View
             android:layout_width="@dimen/short_content_width_padding"
             android:layout_height="match_parent" />
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/receiveLayoutButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/receiveLayoutButton"
-                android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="2dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="@string/butn_receive" />
-
-        </LinearLayout>
+                android:padding="10dp"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/recieve"
+                    android:tint="@color/colorSecondary"/>
+                <TextView
+                    style="@style/TextAppearance.Primary.Big.SingleLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/butn_receive"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 

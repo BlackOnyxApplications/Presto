@@ -1,7 +1,5 @@
 package com.bhuvan_kumar.Presto.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import com.bhuvan_kumar.Presto.R;
@@ -24,7 +22,7 @@ public class SplashActivity extends Activity {
                     Intent homeIntent = new Intent(SplashActivity.this, HomeActivity.class);
                     startActivity(homeIntent);
                 }
-            }, 1000 * 2);
+            }, 1500);
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.bhuvan_kumar.Presto.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -11,6 +13,7 @@ import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.util.AppUtils;
 import com.bhuvan_kumar.Presto.util.PreferenceUtils;
 import com.bhuvan_kumar.Presto.R;
+import com.bhuvan_kumar.Presto.wordsearch.features.settings.Preferences;
 
 public class PreferencesActivity extends Activity
 {
@@ -28,10 +31,7 @@ public class PreferencesActivity extends Activity
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-
-        if (id == android.R.id.home)
-            onBackPressed();
-        else if (id == R.id.actions_preference_main_reset_to_defaults) {
+        if (id == R.id.actions_preference_main_reset_to_defaults) {
             new AlertDialog.Builder(this)
                     .setTitle(R.string.ques_resetToDefault)
                     .setMessage(R.string.text_resetPreferencesToDefaultSummary)
@@ -41,7 +41,6 @@ public class PreferencesActivity extends Activity
                         @Override
                         public void onClick(DialogInterface dialog, int which)
                         {
-                            // TODO: 10/7/18 This will cause two seperate sync operations to start
                             AppUtils.getDefaultPreferences(getApplicationContext()).edit()
                                     .clear()
                                     .apply();

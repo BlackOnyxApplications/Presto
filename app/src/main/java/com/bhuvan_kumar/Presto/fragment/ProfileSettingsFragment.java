@@ -15,6 +15,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ import com.bhuvan_kumar.Presto.R;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 public class ProfileSettingsFragment extends Fragment implements IconSupport, TitleSupport, View.OnClickListener {
     public ProfileSettingsFragment() {}
@@ -65,7 +67,8 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
             @Override
             public void onClick(View v)
             {
-                new ProfileEditorDialog(activity).show();
+                ProfileEditorDialog dialog = new ProfileEditorDialog(activity);
+                dialog.show();
             }
         });
 
@@ -134,6 +137,7 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
                             .clear()
                             .apply();
 
+                    Objects.requireNonNull(getActivity()).finish();
                     }
                 })
                 .show();

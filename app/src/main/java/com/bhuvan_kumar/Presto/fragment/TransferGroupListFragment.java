@@ -121,7 +121,7 @@ public class TransferGroupListFragment
         if(context!=null) {
             try {
                 List<Fragment> fragments = getFragmentManager() != null ? getFragmentManager().getFragments() : new ArrayList<Fragment>();
-                if(fragments.size() > 1) {
+                if((fragments.size() > 1) && isAdded()) {
                     AdLoader.Builder builder = new AdLoader.Builder(getActivity(), getString(R.string.transfer_ad_unit_id));
                     builder.forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                         @Override
@@ -130,12 +130,14 @@ public class TransferGroupListFragment
                                 nativeAd.destroy();
                             }
                             nativeAd = unifiedNativeAd;
-                            FrameLayout frameLayout = view.findViewById(R.id.fl_adplaceholder);
+                            if (isAdded()){
+                                FrameLayout frameLayout = view.findViewById(R.id.fl_adplaceholder);
                                 UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater()
                                         .inflate(R.layout.home_page_custom_ad, null);
                                 populateUnifiedNativeAdView(unifiedNativeAd, adView);
                                 frameLayout.removeAllViews();
                                 frameLayout.addView(adView);
+                            }
                         }
                     });
 
@@ -165,15 +167,6 @@ public class TransferGroupListFragment
         });
 
         try {
-            Handler mHandler = new Handler();
-            mTicker = new Runnable() {
-                @Override
-                public void run() {
-                    if(isAdded()) refreshAd(adaptedView);
-                    mHandler.postDelayed(mTicker, 1000 * 12);
-                }
-            };
-            mHandler.postDelayed(mTicker, 1000 * 12);
 
             if(isAdded()) refreshAd(adaptedView);
         }

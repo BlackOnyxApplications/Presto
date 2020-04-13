@@ -75,13 +75,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal">
+        android:layout_height="35dp">
         <LinearLayout
             android:id="@+id/text_sel_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:orientation="horizontal"
             android:background="@color/colorSecondary">
             <TextView
                 android:id="@+id/text_selection"
@@ -93,6 +92,30 @@
                 android:text="@string/text_appName"/>
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/ic_volume_full"
+            app:srcCompat="@drawable/ic_volume_full"
+            android:tint="@color/colorPrimary"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:padding="3dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/ic_volume_off"
+            app:srcCompat="@drawable/ic_volume_off"
+            android:tint="@color/colorPrimary"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:padding="3dp"/>
     </RelativeLayout>
 
     <FrameLayout
@@ -152,32 +175,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:horizontalSpacing="5dp">
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:background="@color/colorAccent"-->
-                        <!--android:text="test... comp"/>-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:background="@color/colorAccent"-->
-                        <!--android:text="test... comp"/>-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:background="@color/colorAccent"-->
-                        <!--android:text="test... comp"/>-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:background="@color/colorAccent"-->
-                        <!--android:text="test... comp"/>-->
-
-
                 </com.bhuvan_kumar.Presto.wordsearch.custom.layout.FlowLayout>
 
             </ScrollView>

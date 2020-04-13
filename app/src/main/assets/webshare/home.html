@@ -36,9 +36,8 @@
         }
 
         .file_upload_container {
-            border-top: 1px solid #ddd;
             text-align: center;
-            padding: 5px;
+            padding: 30px;
         }
 
         footer {
@@ -97,57 +96,100 @@
             font-size: 14pt;
             color: #999;
         }
+
+        .button_send {
+          background-color: #f44336;
+          border: none;
+          border-radius: 8px;
+          color: white;
+          padding: 12px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          transition-duration: 0.4s;
+        }
+
+        .button_send:hover {
+          background-color: #4f44336;
+          color: white;
+        }
+
+        .space{
+          margin:20px
+        }
+
+        .file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;width: 80%; min-width: 50%; margin: 0 auto;}
+        .file-upload .file-select{display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+        .file-upload .file-select .file-select-button{background:#dce4ec;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+        .file-upload .file-select .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+        .file-upload .file-select:hover{border-color:#34495e;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+        .file-upload .file-select:hover .file-select-button{background:#34495e;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+        .file-upload.active .file-select{border-color:#3fa46a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+        .file-upload.active .file-select .file-select-button{background:#3fa46a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+        .file-upload .file-select input[type=file]{z-index:100;cursor:pointer;position:absolute;height:100%;width:80%;top:0;left:0;opacity:0;filter:alpha(opacity=0);}
+        .file-upload .file-select.file-select-disabled{opacity:0.65;}
+        .file-upload .file-select.file-select-disabled:hover{cursor:default;display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;margin-top:5px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+        .file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+        .file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+
     </style>
     <title>${title}</title>
 </head>
 
 <body>
-    <header>
-        <table style="width: 100%;">
-            <tr>
-                <td style="width: 20%; text-align: center; vertical-align: middle;">
-                    <a href="/">
-                        <img src="${header_logo}" alt="Logo" style="height: 36pt;" />
-                    </a>
-                </td>
-                <td style="width: 60%; text-align: center;  vertical-align: middle;">
-                    ${header}
-                    <br>
-                    <span class="content_detail">${title_header}</span>
-                </td>
-                <td style="width: 20%; text-align: center; vertical-align: middle;">
-                    <!--<table>
-                        <tr>
-                            <td class="content_detail">
-                                ${username}
-                            </td>
-                            <td>
-                                <a href="/help">
-                                    <img src="${help_icon}" alt="${help_alt}" style="height: 24pt;" />
-                                </a>
-                            </td>
-                        </tr>
-                    </table>-->
-                    <a href="/help">
-                        <img src="${help_icon}" alt="${help_alt}" style="height: 24pt;" />
-                    </a>
-                </td>
-            </tr>
-        </table>
-    </header>
-    <div class="main_body">
-        ${main_content}
-    </div>
+<header>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 20%; text-align: center; vertical-align: middle;">
+                <a href="/">
+                    <img src="${header_logo}" alt="Logo" style="height: 36pt;" />
+                </a>
+            </td>
+            <td style="width: 60%; text-align: center;  vertical-align: middle;">
+                ${header}
+                <br>
+                <span class="content_detail">${title_header}</span>
+            </td>
+            <td style="width: 20%; text-align: center; vertical-align: middle;">
 
-    <div class="file_upload_container">
-        <form action="#" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" >
-            <input type="submit" value="Send">
-        </form>
-    </div>
-    <footer>
-        ${footer_text}
-    </footer>
+            </td>
+        </tr>
+    </table>
+</header>
+<div class="main_body">
+    ${main_content}
+</div>
+
+<div class="file_upload_container">
+    <form action="#" method="post" enctype="multipart/form-data">
+        <div class="file-upload">
+            <div class="file-select">
+                <div class="file-select-button" id="fileName">Choose File</div>
+                <div class="file-select-name" id="noFile">No file chosen</div>
+                <input type="file" name="file" id="chooseFile">
+            </div>
+            <div class="space"></div>
+            <input class="button_send" type="submit" value="Send">
+        </div>
+    </form>
+</div>
+<footer>
+    ${footer_text}
+</footer>
 </body>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
+<script>
+        $('#chooseFile').bind('change', function () {
+          var filename = $("#chooseFile").val();
+          if (/^\s*$/.test(filename)) {
+            $(".file-upload").removeClass('active');
+            $("#noFile").text("No file chosen...");
+          }
+          else {
+            $(".file-upload").addClass('active');
+            $("#noFile").text(filename.replace("C:\\home\\", ""));
+          }
+        });
+</script>
 </html>

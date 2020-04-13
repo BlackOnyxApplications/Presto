@@ -36,8 +36,8 @@ android {
         applicationId "com.bhuvan_kumar.Presto"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 98
-        versionName "1.4.2"
+        versionCode 1
+        versionName "0.1"
         multiDexEnabled true
 
         vectorDrawables {
@@ -60,17 +60,17 @@ android {
             versionNameSuffix ''
         }
     }
-    flavorDimensions 'mode'
-    productFlavors {
-        fossReliant {
-            dimension 'mode'
-            signingConfig signingConfigs.gbDistribution
-        }
-        googlePlay {
-            dimension 'mode'
-            signingConfig signingConfigs.gbDistribution
-        }
-    }
+//    flavorDimensions 'mode'
+//    productFlavors {
+//        fossReliant {
+//            dimension 'mode'
+//            signingConfig signingConfigs.gbDistribution
+//        }
+//        googlePlay {
+//            dimension 'mode'
+//            signingConfig signingConfigs.gbDistribution
+//        }
+//    }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
@@ -136,7 +136,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.8.0'
 
-    googlePlayImplementation 'com.anjlab.android.iab.v3:library:1.0.44'
+//    googlePlayImplementation 'com.anjlab.android.iab.v3:library:1.0.44'
 
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

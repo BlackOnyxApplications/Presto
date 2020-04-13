@@ -43,12 +43,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/trusted_devices"
-                android:layout_marginTop="25dp">
+                android:id="@+id/trusted_devices">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -143,6 +154,17 @@
                     android:layout_marginRight="20dp"
                     android:text="@string/butn_resetToDefault"/>
             </LinearLayout>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+            <com.facebook.ads.NativeAdLayout
+                android:id="@+id/fb_native_ad_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <FrameLayout
+                android:id="@+id/fl_adplaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"/>
         </LinearLayout>
     </ScrollView>
 

@@ -17,7 +17,7 @@
         tools:replace="android:appComponentFactory">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6336656817224230~2201465547"/>
+            android:value="ca-app-pub-6336656817224230~3933992840"/>
 
         <activity
             android:name=".activity.SplashActivity"

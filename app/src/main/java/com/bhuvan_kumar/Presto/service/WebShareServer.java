@@ -100,6 +100,7 @@ public class WebShareServer extends NanoHTTPD
 
                 session.parseBody(files);
                 receiveTimeElapsed = System.currentTimeMillis() - receiveTimeElapsed;
+//                Log.e("WebShareServer", "receiveTimeElapsed: "+ receiveTimeElapsed);
             } catch (IOException var5) {
                 return newFixedLengthResponse(NanoHTTPD.Response.Status.INTERNAL_ERROR,
                         "text/plain", "SERVER INTERNAL ERROR: IOException: "
@@ -227,6 +228,7 @@ public class WebShareServer extends NanoHTTPD
         if (session.getUri().length() > 1) {
             args = session.getUri().substring(1).split("/");
         }
+        Log.e(getClass().getName(), "args: "+ args);
 
         try {
             switch (args.length >= 1 ? args[0] : "") {
@@ -235,7 +237,7 @@ public class WebShareServer extends NanoHTTPD
                     return serveFileDownload(args, session);
                 case "image":
                     return serveFile(args);
-                case "trebleshot":
+                case "presto":
                     return serveAPK();
                 case "show":
                     return newFixedLengthResponse(Response.Status.ACCEPTED, "text/html",
@@ -243,9 +245,9 @@ public class WebShareServer extends NanoHTTPD
                 case "test":
                     return newFixedLengthResponse(Response.Status.ACCEPTED, "text/plain",
                             "Works");
-                case "help":
-                    return newFixedLengthResponse(Response.Status.ACCEPTED, "text/html",
-                            serveHelpPage());
+//                case "help":
+//                    return newFixedLengthResponse(Response.Status.ACCEPTED, "text/html",
+//                            serveHelpPage());
                 default:
                     return newFixedLengthResponse(Response.Status.ACCEPTED, "text/html",
                             serveMainPage());

@@ -31,11 +31,13 @@ import android.widget.Toast;
 import com.bhuvan_kumar.Presto.App;
 import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.activity.HomeActivity;
+import com.bhuvan_kumar.Presto.util.PreferenceUtils;
 import com.bhuvan_kumar.Presto.wordsearch.features.SoundPlayer;
 import com.bhuvan_kumar.Presto.wordsearch.features.ViewModelFactory;
 import com.bhuvan_kumar.Presto.wordsearch.commons.DurationFormatter;
 import com.bhuvan_kumar.Presto.wordsearch.commons.Util;
 import com.bhuvan_kumar.Presto.wordsearch.features.gameover.GameOverViewModel;
+import com.bhuvan_kumar.Presto.wordsearch.features.settings.Preferences;
 import com.bhuvan_kumar.Presto.wordsearch.model.GameData;
 import com.bhuvan_kumar.Presto.wordsearch.custom.LetterBoard;
 import com.bhuvan_kumar.Presto.wordsearch.custom.StreakView;
@@ -70,6 +72,9 @@ import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 public class GamePlayActivity extends FullscreenActivity implements
         AdapterView.OnItemSelectedListener{
 
@@ -83,7 +88,6 @@ public class GamePlayActivity extends FullscreenActivity implements
     private static final StreakLineMapper STREAK_LINE_MAPPER = new StreakLineMapper();
 
     private UnifiedNativeAd nativeAd;
-    private Runnable mTicker = null;
 
     @Inject
     SoundPlayer mSoundPlayer;
@@ -202,16 +206,36 @@ public class GamePlayActivity extends FullscreenActivity implements
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
         });
 
-        Handler mHandler = new Handler();
-        mTicker = new Runnable() {
+        refreshAd(null, getString(R.string.game_head_ad_unit_id));
+
+
+        ImageView volume_full = findViewById(R.id.ic_volume_full);
+        ImageView mute = findViewById(R.id.ic_volume_off);
+        volume_full.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                refreshAd(null, getString(R.string.game_hint_ad_unit_id));
-                mHandler.postDelayed(mTicker, 1000 * 10);
+            public void onClick(View v) {
+                volume_full.setVisibility(GONE);
+                mute.setVisibility(VISIBLE);
+                PreferenceUtils.SetGameMuted(GamePlayActivity.this, true);
             }
-        };
-        mHandler.postDelayed(mTicker, 1000 * 10);
-        refreshAd(null, getString(R.string.game_hint_ad_unit_id));
+        });
+        mute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                volume_full.setVisibility(VISIBLE);
+                mute.setVisibility(GONE);
+                PreferenceUtils.SetGameMuted(GamePlayActivity.this, false);
+            }
+        });
+
+        if(PreferenceUtils.IsGameMuted(this)){
+            mute.setVisibility(VISIBLE);
+            volume_full.setVisibility(GONE);
+        }else{
+            volume_full.setVisibility(VISIBLE);
+            mute.setVisibility(GONE);
+        }
+
     }
 
     private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
@@ -222,7 +246,7 @@ public class GamePlayActivity extends FullscreenActivity implements
         ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
 
         if (nativeAd.getIcon() == null) {
-            adView.getIconView().setVisibility(View.GONE);
+            adView.getIconView().setVisibility(GONE);
         } else {
             ((ImageView) adView.getIconView()).setImageDrawable(
                     nativeAd.getIcon().getDrawable());
@@ -332,12 +356,13 @@ public class GamePlayActivity extends FullscreenActivity implements
                 anim.start();
             }
 
-            mSoundPlayer.play(SoundPlayer.Sound.Correct);
+            if(! PreferenceUtils.IsGameMuted(this))
+                mSoundPlayer.play(SoundPlayer.Sound.Correct);
         }
         else {
             mLetterBoard.popStreakLine();
-
-            mSoundPlayer.play(SoundPlayer.Sound.Wrong);
+            if(! PreferenceUtils.IsGameMuted(this))
+                mSoundPlayer.play(SoundPlayer.Sound.Wrong);
         }
     }
 
@@ -392,11 +417,11 @@ public class GamePlayActivity extends FullscreenActivity implements
         if (enable) {
             mLoading.setVisibility(View.VISIBLE);
             mLoadingText.setVisibility(View.VISIBLE);
-            mContentLayout.setVisibility(View.GONE);
+            mContentLayout.setVisibility(GONE);
             mLoadingText.setText(text);
         } else {
-            mLoading.setVisibility(View.GONE);
-            mLoadingText.setVisibility(View.GONE);
+            mLoading.setVisibility(GONE);
+            mLoadingText.setVisibility(GONE);
             mContentLayout.setVisibility(View.VISIBLE);
         }
     }

@@ -38,21 +38,14 @@ import com.bhuvan_kumar.Presto.wordsearch.features.gameplay.GamePlayActivity;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdIconView;
-import com.facebook.ads.AdOptionsView;
 import com.facebook.ads.AudienceNetworkAds;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdLayout;
 import com.facebook.ads.NativeAdListener;
-import com.google.android.ads.nativetemplates.NativeTemplateStyle;
-import com.google.android.ads.nativetemplates.TemplateView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.VideoController;
-import com.google.android.gms.ads.VideoOptions;
-import com.google.android.gms.ads.formats.MediaView;
-import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.google.android.gms.ads.initialization.InitializationStatus;
@@ -60,15 +53,12 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
 import com.facebook.ads.*;
 
 public class ShareHomeFragment extends Fragment implements IconSupport, TitleSupport {
 
     public ShareHomeFragment() {}
     private UnifiedNativeAd nativeAd;
-    private Runnable mTicker = null;
     private int backToAppFlags = Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
 
     @Override
@@ -140,24 +130,12 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
             });
 
             try {
-                Handler mHandler = new Handler();
-                mTicker = new Runnable() {
-                    @Override
-                    public void run() {
-                        if(isAdded()) {
-                            refreshAd(view);
-                            loadNativeAd(view);
-                        }
-                        mHandler.postDelayed(mTicker, 1000 * 12);
-                    }
-                };
-                mHandler.postDelayed(mTicker, 1000 * 12);
                 if(isAdded()) {
                     refreshAd(view);
                     loadNativeAd(view);
                 }
             } catch (Exception ex) {
-                Log.e(getTag(), "" + ex.toString());
+                Log.e(getTag(), "initializeAds: " + ex.toString());
             }
         }
     }
@@ -212,7 +190,7 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
                     AdLoader adLoader = builder.withAdListener(new AdListener() {
                         @Override
                         public void onAdFailedToLoad(int errorCode) {
-
+                            Log.e(getTag(), "refreshAd errorCode: " + errorCode);
                         }
                     }).build();
 
@@ -227,10 +205,8 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
 
 //    Facebook ads
 private void loadNativeAd(View view) {
-    Log.e(getTag(), "Loading FB native ads");
         if(getActivity() != null) {
             NativeAd nativeAd = new NativeAd(getActivity(), getString(R.string.fb_home_ad_unit));
-            Log.e(getTag(), nativeAd.getPlacementId());
             nativeAd.setAdListener(new NativeAdListener() {
                 @Override
                 public void onMediaDownloaded(Ad ad) {
@@ -244,7 +220,6 @@ private void loadNativeAd(View view) {
                 @Override
                 public void onAdLoaded(Ad ad) {
                     if (nativeAd == null || nativeAd != ad) {
-                        Log.e(getTag(), ad.getPlacementId());
                         return;
                     }
                     inflateAd(nativeAd, view);
@@ -271,7 +246,6 @@ private void inflateAd(NativeAd nativeAd, View view) {
             NativeAdLayout nativeAdLayout = view.findViewById(R.id.fb_native_ad_container);
             LayoutInflater inflater = LayoutInflater.from(context);
             LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.facebook_native_ad_view, nativeAdLayout, false);
-
             AdIconView nativeAdIcon = adView.findViewById(R.id.fb_native_ad_icon);
             TextView nativeAdTitle = adView.findViewById(R.id.fb_ad_headline);
 

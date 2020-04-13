@@ -7,14 +7,16 @@ import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.util.AppUtils;
 
 import android.os.Handler;
+import android.view.animation.AnimationUtils;
 
 public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        boolean isFirstTIme = AppUtils.getDefaultPreferences(this).getBoolean("introduction_shown", false);
-        if(isFirstTIme){
+        slideSplashView();
+        boolean isFirstTime = AppUtils.getDefaultPreferences(this).getBoolean("introduction_shown", false);
+        if(isFirstTime){
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -24,5 +26,12 @@ public class SplashActivity extends Activity {
                 }
             }, 1500);
         }
+    }
+    protected void slideSplashView()
+    {
+        findViewById(R.id.layout_welcome_page_1_splash_image)
+                .setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom_centered));
+        findViewById(R.id.layout_welcome_page_1_details)
+                .setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom));
     }
 }

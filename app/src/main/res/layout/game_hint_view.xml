@@ -36,26 +36,34 @@
             android:layout_below="@+id/fl_adplaceholder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
-        <RelativeLayout
+            android:layout_marginTop="2dp"/>
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fb_native_ad_container"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp">
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="200dp">
-                <TextView
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+                <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:singleLine="false"
-                    android:id="@+id/hint_text"
-                    android:textSize="20sp"
-                    android:textColor="@color/black_dominant"/>
-            </ScrollView>
-        </RelativeLayout>
+                    android:layout_height="200dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:id="@+id/hint_text"
+                        android:padding="5dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/black_dominant"/>
+                </ScrollView>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
         </RelativeLayout>
     <LinearLayout
         android:layout_below="@+id/rl"

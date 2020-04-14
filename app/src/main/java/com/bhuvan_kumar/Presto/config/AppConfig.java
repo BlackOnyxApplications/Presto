@@ -31,7 +31,7 @@ public class AppConfig
             EMAIL_DEVELOPER = "black.onyx.applications@gmail.com",
             URI_REPO_APP_UPDATE = "",
             URI_REPO_APP_CONTRIBUTORS = "",
-            URI_GOOGLE_PLAY = "",
+            URI_GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.bhuvan_kumar.Presto",
             URI_REPO_APP = "",
             URI_REPO_ORG = "",
             URI_GITHUB_PROFILE = "",

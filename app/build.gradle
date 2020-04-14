@@ -35,7 +35,7 @@ android {
     defaultConfig {
         applicationId "com.bhuvan_kumar.Presto"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "0.1"
         multiDexEnabled true
@@ -118,9 +118,7 @@ dependencies {
     implementation 'androidx.preference:preference:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.google.android.material:material:1.1.0-alpha05'
-    //todo: alpha07 has changes that need to applied.
 
-    //implementation 'com.genonbeta.android:framework:1.0.2.6-local69'
     implementation 'com.genonbeta.android:framework:1.0.2.8'
     implementation 'com.genonbeta.android:gdatabase:1.0.2.6.1'
     implementation 'com.genonbeta.coolsocket:main:1.0.3.1'

@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -29,6 +30,9 @@ import android.widget.TextView;
 
 import com.bhuvan_kumar.Presto.activity.ConnectionManagerActivity;
 import com.bhuvan_kumar.Presto.activity.ContentSharingActivity;
+import com.bhuvan_kumar.Presto.activity.StatusSaverActivity;
+//import com.bhuvan_kumar.Presto.activity.YoutubeVideoSaver;
+import com.bhuvan_kumar.Presto.cleaner.CleanerMainActivity;
 import com.bhuvan_kumar.Presto.service.CommunicationService;
 import com.bhuvan_kumar.Presto.ui.callback.IconSupport;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;
@@ -101,6 +105,14 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
         });
 
         CardView werbAppView = view.findViewById(R.id.werb_app_view);
+        if(getActivity() != null){
+            try {
+                getActivity().getPackageManager().getPackageInfo("com.developer.bhuvan_kumar.werb_free", 0);
+                werbAppView.setVisibility(View.VISIBLE);
+            } catch (PackageManager.NameNotFoundException e) {
+                werbAppView.setVisibility(View.GONE);
+            }
+        }
         werbAppView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +128,24 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
                     }
                 }
         });
+
+        CardView cleanerView = view.findViewById(R.id.clean_card);
+        cleanerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cleanerIntent = new Intent(getActivity(), CleanerMainActivity.class);
+                startActivity(cleanerIntent);
+            }
+        });
+        CardView WhatsAppCard = view.findViewById(R.id.status_saver_card);
+        WhatsAppCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent statusSaverIntent = new Intent(getActivity(), StatusSaverActivity.class);
+                startActivity(statusSaverIntent);
+            }
+        });
+
         initializeAds(view);
         return view;
     }

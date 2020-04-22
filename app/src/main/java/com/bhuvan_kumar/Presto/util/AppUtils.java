@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.Base64;
 import android.util.Log;
 import android.util.TypedValue;
@@ -260,9 +261,10 @@ public class AppUtils
 
     public static String getDeviceSerial(Context context)
     {
-        return Build.VERSION.SDK_INT < 26
-                ? Build.SERIAL
-                : (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED ? Build.getSerial() : null);
+        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+//        return Build.VERSION.SDK_INT < 26
+//                ? Build.SERIAL
+//                : (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED ? Build.getSerial() : null);
     }
 
     public static String getFriendlySSID(String ssid)

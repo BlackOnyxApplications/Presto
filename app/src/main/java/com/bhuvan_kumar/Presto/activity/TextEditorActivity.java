@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 import com.bhuvan_kumar.Presto.GlideApp;
 import com.bhuvan_kumar.Presto.app.Activity;
@@ -92,6 +93,23 @@ public class TextEditorActivity extends Activity implements SnackbarSupport
                         .getText()
                         .append(getIntent().getStringExtra(EXTRA_TEXT_INDEX));
         }
+
+//        String youtube_link = mEditTextEditor.getText().toString().trim();
+//        CardView youtube_saver_card = findViewById(R.id.youtube_saver_card);
+//        if (youtube_link.contains("://youtu.be/") || youtube_link.contains("youtube.com/watch?v=")) {
+//            youtube_saver_card.setVisibility(View.VISIBLE);
+//            youtube_saver_card.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent youtubeSaverIntent = new Intent(TextEditorActivity.this, YoutubeVideoSaver.class);
+//                    youtubeSaverIntent.putExtra("LINK", youtube_link);
+//                    startActivity(youtubeSaverIntent);
+//                }
+//            });
+//        }else{
+//            Toast.makeText(this,"Invalid Youtube link", Toast.LENGTH_LONG).show();
+//            youtube_saver_card.setVisibility(View.GONE);
+//        }
     }
 
     @Override

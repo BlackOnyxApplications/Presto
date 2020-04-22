@@ -152,6 +152,8 @@
     <string name="text_fileSize">File size</string>
     <string name="text_fileMime">File type</string>
     <string name="text_fileStatus">File status</string>
+    <string name="status">Status</string>
+    <string name="youtube">Youtube</string>
     <string name="butn_resume">Resume</string>
     <string name="text_transactionDetails">Details</string>
     <string name="text_fileExplorer">File explorer</string>
@@ -514,13 +516,96 @@
     <string name="grayscale">Grayscale</string>
     <string name="game_data_desc">:gridSize Grid, :wordCount Words</string>
 
+    <string name="app_name">LTE Cleaner</string>
+    <string name="lte_cleaner">LTE Cleaner!</string>
+    <string name="no_files_found">No files found</string>
+    <string name="delete_empty_folders">Delete empty folders</string>
+    <string name="aggressive_filter">Enable aggressive filter</string>
+    <string name="Save">Save</string>
+    <string name="filter">Filter</string>
+    <string name="whitelist">Whitelist</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="add_to_whitelist">Add to whitelist</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_file_name">Enter file/folder name to whitelist</string>
+    <string name="make_suggestion">Make Suggestion</string>
+    <string name="select_task">Select a task</string>
+    <string name="do_you_want_to">Do you want to delete (Clean) all found files, or only display (Analyze) them?</string>
+    <string name="clean">Clean</string>
+    <string name="cleaner">Cleaner</string>
+    <string name="analyze">Analyze</string>
+    <string name="enable_generic_filter">Enable generic filter</string>
+    <string name="one_click_clean">One click clean</string>
+    <string name="freed">Freed: </string>
+    <string name="found">Found: </string>
+    <string name="auto_whitelist">Auto Whitelist</string>
+    <string name="reset_whitelist">Empty whitelist?</string>
+    <string name="are_you_reset_whitelist">Are you sure you want to clear the whitelist?</string>
+    <string name="reset">Clear</string>
+    <string name="delete_apk_files">Delete .apk files</string>
+    <string name="lte_threading">LTE Threading (Faster)</string>
+    <string name="default_whitelist">Default Whitelist</string>
+    <string name="add_defaults">Add Recommended Whitelists</string>
+    <string name="nothing_found">Nothing found</string>
+    <string name="status_idle">Status: Idle</string>
+    <string name="progress_0">0%</string>
+    <string name="status_running">Status: Running</string>
+    <string name="privacy_sum">View the privacy policy (external link)</string>
+    <string name="whitelist_sum">Shows the paths to exclude from scans</string>
+    <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
+    <string name="generic_sum">.tmp, .log, Logs, logs</string>
+    <string name="aggressive_sum">Too much to list here</string>
+    <string name="apk_sum">Installer files for android</string>
+    <string name="oneclick_sum">No dialog menu when clicking Clean</string>
+    <string name="autowhite_sum">Detect folders that should be protected automatically</string>
+    <string name="prompt_string">Please add file access permissions</string>
+    <string name="settings_string">Settings</string>
+    <string name="title_activity_prompt">PromptActivity</string>
 
-<!--    Admob ids-->
-<!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <string-array name="generic_filter_files">
+        <item>.tmp</item>
+        <item>.log</item>
+    </string-array>
+    <string-array name="generic_filter_folders">
+        <item>Logs</item>
+        <item>logs</item>
+        <item>temp</item>
+        <item>Temporary</item>
+        <item>temporary</item>
+    </string-array>
+
+    <string-array name="aggressive_filter_folders">
+        <item>supersonicads</item>
+        <item>Cache</item>
+        <item>Analytics</item>
+        <item>thumbnails?</item>
+        <item>mobvista</item>
+        <item>UnityAdsVideoCache</item>
+        <item>albumthumbs?</item>
+        <item>LOST.DIR</item>
+        <item>.Trash</item>
+        <item>desktop.ini</item>
+        <item>leakcanary</item>
+        <item>.DS_Store</item>
+        <item>.spotlight-V100</item>
+        <item>fseventsd</item>
+        <item>Bugreport</item>
+        <item>.Trash</item>
+        <item>cache</item>
+    </string-array>
+    <string-array name="aggressive_filter_files">
+        <item>.exo</item>
+        <item>thumbs?.db</item>
+    </string-array>
+
+
+    <!--    Admob ids-->
+    <!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
 
     <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>
     <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>
@@ -530,6 +615,7 @@
     <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
 
     <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
+    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
     <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
 
 </resources>

@@ -7,24 +7,28 @@
         android:name=".App"
         android:allowBackup="true"
         android:appComponentFactory="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:fullBackupContent="true"
         android:icon="@drawable/presto_p_png_no_shadow"
         android:label="@string/text_appName"
         android:supportsRtl="true"
         android:theme="@style/Theme.TrebleShot"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6336656817224230~3933992840"/>
-
+<!--        <activity-->
+<!--            android:name=".activity.YoutubeVideoSaver"-->
+<!--            android:theme="@style/Theme.TrebleShot.NoActionBar">-->
+<!--        </activity>-->
+        <activity
+            android:name=".activity.StatusSaverActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar" />
         <activity
             android:name=".activity.SplashActivity"
             android:label="@string/text_appName"
             android:theme="@style/Theme.TrebleShot.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,8 +36,7 @@
             android:name=".activity.HomeActivity"
             android:label="@string/text_appName"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.TrebleShot.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.TrebleShot.NoActionBar" />
         <activity
             android:name=".activity.ShareActivity"
             android:label="@string/text_appName"
@@ -120,6 +123,24 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".cleaner.CleanerPromptActivity"
+            android:label="@string/title_activity_prompt"
+            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
+        <activity
+            android:name=".cleaner.CleanerWhitelistActivity"
+            android:parentActivityName=".cleaner.CleanerSettingsActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
+        <activity
+            android:name=".cleaner.CleanerMainActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar">
+        </activity>
+        <activity
+            android:name=".cleaner.CleanerSettingsActivity"
+            android:parentActivityName=".cleaner.CleanerMainActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
+
         <activity
             android:name=".activity.AboutActivity"
             android:label="@string/text_about"
@@ -129,11 +150,11 @@
             android:label="@string/text_thirdPartyLibraries" />
         <activity
             android:name=".activity.ChangelogActivity"
-            android:label="@string/text_changelog" /> <!-- todo: Remember, we are always using dark theme for this for better effects -->
+            android:label="@string/text_changelog" />
         <activity
             android:name=".activity.BarcodeScannerActivity"
             android:label="@string/text_scanQrCode"
-            android:theme="@style/Theme.TrebleShot.BarcodeScannerActivity" />
+            android:theme="@style/Theme.TrebleShot.BarcodeScannerActivity" /> <!-- todo: Remember, we are always using dark theme for this for better effects -->
         <activity
             android:name=".activity.WelcomeActivity"
             android:label="@string/text_welcome"
@@ -142,27 +163,20 @@
             android:name=".activity.WebShareActivity"
             android:label="@string/text_webShare"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
-
-        <activity
-            android:name=".wordsearch.features.SplashScreenActivity">
-        </activity>
-        <activity android:name=".wordsearch.features.FullscreenActivity">
-        </activity>
-        <activity android:name=".wordsearch.features.gamehistory.GameHistoryActivity">
-        </activity>
-        <activity android:name=".wordsearch.features.gameover.GameOverActivity">
-        </activity>
+        <activity android:name=".wordsearch.features.SplashScreenActivity" />
+        <activity android:name=".wordsearch.features.FullscreenActivity" />
+        <activity android:name=".wordsearch.features.gamehistory.GameHistoryActivity" />
+        <activity android:name=".wordsearch.features.gameover.GameOverActivity" />
         <activity
             android:name=".wordsearch.features.gameplay.GamePlayActivity"
-            android:theme="@style/Theme.TrebleShot.NoActionBar">
-        </activity>
-        <activity
-            android:name=".wordsearch.features.mainmenu.MainMenuActivity">
-        </activity>
-        <activity android:name=".wordsearch.features.settings.AppCompatPreferenceActivity">
-        </activity>
-        <activity android:name=".wordsearch.features.settings.SettingsActivity">
-        </activity>
+            android:theme="@style/Theme.TrebleShot.NoActionBar" />
+        <activity android:name=".wordsearch.features.mainmenu.MainMenuActivity" />
+        <activity android:name=".wordsearch.features.settings.AppCompatPreferenceActivity" />
+        <activity android:name=".wordsearch.features.settings.SettingsActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6336656817224230~3933992840" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -187,6 +201,15 @@
         <receiver
             android:name=".receiver.DialogEventReceiver"
             android:process=":transfer" />
+
+<!--        <receiver-->
+<!--            android:name=".receiver.YoutubeDownloadFinishedReciever"-->
+<!--            android:exported="true"-->
+<!--            android:process=".dlFinished">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
         <service
             android:name=".service.CommunicationService"
@@ -236,7 +259,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

@@ -18,9 +18,8 @@ if (useLocalSigning) {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion '28.0.3'
-
     signingConfigs {
         gbDistribution {
             if (useLocalSigning) {
@@ -163,4 +162,15 @@ dependencies {
 
     implementation 'com.facebook.android:audience-network-sdk:5.8.0'
     implementation 'com.android.support:support-annotations:28.0.0'
+
+    implementation 'commons-io:commons-io:2.0.1'
+//    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
+//    implementation 'org.aspectj:aspectjrt:1.8.13'
+//    implementation 'com.googlecode.mp4parser:isoparser:1.1.22'
+
+    implementation 'com.fxn769:stash:1.3.2'
+    implementation 'com.github.medyo:fancybuttons:1.9.1'
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
+
 }

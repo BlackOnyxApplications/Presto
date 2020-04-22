@@ -30,7 +30,7 @@
 
     <!-- SEPERATOR -->
 
-
+    <color name="save_green">#00FA9A</color>
     <color name="dark_colorControlNormal">#ffffff</color>
     <color name="dark_colorError">#ffeb3b</color>
     <color name="dark_colorOnPrimary">@color/dark_colorControlNormal</color>
@@ -51,6 +51,7 @@
     <color name="dark_colorShadowEnd">#500E171A</color>
     <color name="dark_colorTranslucent">#b000</color>
     <color name="dark_contentShowingBackground">#616161</color>
+    <color name="transparent">#55616161</color>
 
 
     <!-- SEPERATOR -->
@@ -60,7 +61,7 @@
     <color name="black_surface">#1a1a1a</color>
 
 
-    <color name="colorAccent">#1E88E5</color>
+    <color name="colorAccent">#ffff5349</color>
     <color name="selTextBgColor">#F06292</color>
 
     <color name="gray">#aa808080</color>

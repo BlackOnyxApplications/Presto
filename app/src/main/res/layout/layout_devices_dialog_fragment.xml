@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/devices_fragment"
-        android:name="com.bhuvan_kumar.Presto.fragment.NetworkDeviceListFragment"
+        android:name="com.black_onyx.Presto.fragment.NetworkDeviceListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:tag="devicesFragment" />

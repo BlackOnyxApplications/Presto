@@ -25,11 +25,11 @@
 
     <fragment
         android:id="@+id/activity_text_stream_fragment"
-        android:name="com.bhuvan_kumar.Presto.fragment.TextStreamListFragment"
+        android:name="com.black_onyx.Presto.fragment.TextStreamListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.bhuvan_kumar.Presto.activity.TextStreamActivity"
+        tools:context="com.black_onyx.Presto.activity.TextStreamActivity"
         tools:showIn="@layout/activity_text_stream" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -48,7 +48,8 @@
                     android:background="?rectSelector"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="15dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -74,7 +75,8 @@
                     android:background="?rectSelector"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="15dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -93,61 +95,6 @@
                         android:text="@string/butn_useExistingNetwork" />
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/connection_option_hotspot"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?rectSelector"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"
-                        app:srcCompat="@drawable/ic_wifi_tethering_white_24dp"
-                        app:tint="?colorSecondary" />
-
-                    <TextView
-                        style="@style/TextAppearance.Primary.SingleLine"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/butn_showQRnIP" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/connection_option_scan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?rectSelector"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginRight="30dp"
-                        app:srcCompat="@drawable/ic_qrcode_scan_white_24dp"
-                        app:tint="?colorSecondary" />
-
-                    <TextView
-                        style="@style/TextAppearance.Primary.SingleLine"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/butn_scanQrCode" />
-
-                </LinearLayout>
-
                 <LinearLayout
                     android:id="@+id/connection_option_manual_ip"
                     android:layout_width="match_parent"
@@ -155,7 +102,8 @@
                     android:background="?rectSelector"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="15dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -173,6 +121,68 @@
                         android:layout_height="wrap_content"
                         android:text="@string/butn_enterIpAddress" />
 
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+                    <LinearLayout
+                        android:id="@+id/connection_option_hotspot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?rectSelector"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="15dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:srcCompat="@drawable/ic_qrcode_white_128dp"
+                            app:tint="?colorSecondary"
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            style="@style/TextAppearance.Primary.SingleLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/butn_showQRnIP"
+                            android:textSize="25sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/connection_option_scan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?rectSelector"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="15dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_qrcode_scan_white_24dp"
+                            app:tint="?colorSecondary"
+                            android:layout_margin="10dp"/>
+
+                        <TextView
+                            style="@style/TextAppearance.Primary.SingleLine"
+                            android:textSize="25sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/butn_scanQrCode"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <!--
@@ -239,7 +249,7 @@
 
         <fragment
             android:id="@+id/connection_option_device_list"
-            android:name="com.bhuvan_kumar.Presto.fragment.CustomNetworkDeviceListFragment"
+            android:name="com.black_onyx.Presto.fragment.CustomNetworkDeviceListFragment"
             android:layout_width="match_parent"
             android:layout_height="260dp"
             android:tag="deviceListFragment" />

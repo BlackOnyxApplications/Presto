@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.bhuvan_kumar.Presto.wordsearch.features.gameplay.GamePlayActivity">
+    tools:context="com.black_onyx.Presto.wordsearch.features.gameplay.GamePlayActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -146,7 +146,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.bhuvan_kumar.Presto.wordsearch.custom.LetterBoard
+            <com.black_onyx.Presto.wordsearch.custom.LetterBoard
                 android:id="@+id/letter_board"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -170,12 +170,12 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp">
 
-                <com.bhuvan_kumar.Presto.wordsearch.custom.layout.FlowLayout
+                <com.black_onyx.Presto.wordsearch.custom.layout.FlowLayout
                     android:id="@+id/flow_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:horizontalSpacing="5dp">
-                </com.bhuvan_kumar.Presto.wordsearch.custom.layout.FlowLayout>
+                </com.black_onyx.Presto.wordsearch.custom.layout.FlowLayout>
 
             </ScrollView>
 

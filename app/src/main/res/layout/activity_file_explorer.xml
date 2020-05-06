@@ -28,12 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.bhuvan_kumar.Presto.activity.ContentSharingActivity"
+        tools:context="com.black_onyx.Presto.activity.ContentSharingActivity"
         tools:showIn="@layout/activity_content_sharing">
 
         <fragment
             android:id="@+id/activity_file_explorer_fragment_files"
-            android:name="com.bhuvan_kumar.Presto.fragment.FileExplorerFragment"
+            android:name="com.black_onyx.Presto.fragment.FileExplorerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

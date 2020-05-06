@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.bhuvan_kumar.Presto.activity.HomeActivity"
+    tools:context="com.black_onyx.Presto.activity.HomeActivity"
     tools:showIn="@layout/activity_main">
 
     <fragment
         android:id="@+id/activitiy_home_fragment"
-        android:name="com.bhuvan_kumar.Presto.fragment.HomeFragment"
+        android:name="com.black_onyx.Presto.fragment.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -18,7 +18,7 @@ if (useLocalSigning) {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 28
     buildToolsVersion '28.0.3'
     signingConfigs {
         gbDistribution {
@@ -32,11 +32,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.bhuvan_kumar.Presto"
+        applicationId "com.black_onyx.Presto"
         minSdkVersion 16
-        targetSdkVersion 29
-        versionCode 1
-        versionName "0.1"
+        targetSdkVersion 28
+        versionCode 5
+        versionName "0.5"
         multiDexEnabled true
 
         vectorDrawables {

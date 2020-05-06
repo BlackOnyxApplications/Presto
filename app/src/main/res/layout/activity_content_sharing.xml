@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.bhuvan_kumar.Presto.activity.ContentSharingActivity"
+        tools:context="com.black_onyx.Presto.activity.ContentSharingActivity"
         tools:showIn="@layout/activity_content_sharing">
 
         <com.genonbeta.android.framework.widget.PowerfulActionMode

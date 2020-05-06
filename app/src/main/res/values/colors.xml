@@ -30,7 +30,7 @@
 
     <!-- SEPERATOR -->
 
-    <color name="save_green">#00FA9A</color>
+    <color name="save_green">#98ff98</color>
     <color name="dark_colorControlNormal">#ffffff</color>
     <color name="dark_colorError">#ffeb3b</color>
     <color name="dark_colorOnPrimary">@color/dark_colorControlNormal</color>

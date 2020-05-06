@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.bhuvan_kumar.Presto">
+    package="com.black_onyx.Presto">
 
     <application
-        android:name=".App"
+        android:name="com.black_onyx.Presto.App"
         android:allowBackup="true"
         android:appComponentFactory="@string/app_name"
         android:fullBackupContent="true"
@@ -20,10 +20,10 @@
 <!--            android:theme="@style/Theme.TrebleShot.NoActionBar">-->
 <!--        </activity>-->
         <activity
-            android:name=".activity.StatusSaverActivity"
+            android:name="com.black_onyx.Presto.activity.StatusSaverActivity"
             android:theme="@style/Theme.TrebleShot.NoActionBar" />
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.black_onyx.Presto.activity.SplashActivity"
             android:label="@string/text_appName"
             android:theme="@style/Theme.TrebleShot.NoActionBar">
             <intent-filter>
@@ -33,12 +33,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.HomeActivity"
+            android:name="com.black_onyx.Presto.activity.HomeActivity"
             android:label="@string/text_appName"
             android:launchMode="singleTask"
             android:theme="@style/Theme.TrebleShot.NoActionBar" />
         <activity
-            android:name=".activity.ShareActivity"
+            android:name="com.black_onyx.Presto.activity.ShareActivity"
             android:label="@string/text_appName"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar">
             <intent-filter>
@@ -60,31 +60,31 @@
             -->
         </activity>
         <activity
-            android:name=".activity.AddDevicesToTransferActivity"
+            android:name="com.black_onyx.Presto.activity.AddDevicesToTransferActivity"
             android:label="@string/text_addDevicesToTransfer"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
-            android:name=".activity.FileExplorerActivity"
+            android:name="com.black_onyx.Presto.activity.FileExplorerActivity"
             android:label="@string/text_fileExplorer"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
-            android:name=".activity.TextStreamActivity"
+            android:name="com.black_onyx.Presto.activity.TextStreamActivity"
             android:label="@string/text_textStream"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
-            android:name=".activity.ConnectionManagerActivity"
+            android:name="com.black_onyx.Presto.activity.ConnectionManagerActivity"
             android:label="@string/text_connectDevices"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
-            android:name=".activity.ContentSharingActivity"
+            android:name="com.black_onyx.Presto.activity.ContentSharingActivity"
             android:label="@string/text_send"
             android:launchMode="singleTask"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
-            android:name=".activity.FilePickerActivity"
+            android:name="com.black_onyx.Presto.activity.FilePickerActivity"
             android:label="@string/text_fileExplorer" />
         <activity
-            android:name=".activity.ViewTransferActivity"
+            android:name="com.black_onyx.Presto.activity.ViewTransferActivity"
             android:label="@string/text_transactionViewer"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar">
             <intent-filter>
@@ -103,19 +103,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ManageDevicesActivity"
+            android:name="com.black_onyx.Presto.activity.ManageDevicesActivity"
             android:label="@string/text_manageDevices" />
         <activity
-            android:name=".activity.SearchActivity"
+            android:name="com.black_onyx.Presto.activity.SearchActivity"
             android:label="@string/butn_search" />
         <activity
-            android:name=".activity.PreferencesActivity"
+            android:name="com.black_onyx.Presto.activity.PreferencesActivity"
             android:label="@string/text_preferences" />
         <activity
-            android:name=".activity.TextEditorActivity"
+            android:name="com.black_onyx.Presto.activity.TextEditorActivity"
             android:label="@string/text_textEditor" />
         <activity
-            android:name=".activity.ChangeStoragePathActivity"
+            android:name="com.black_onyx.Presto.activity.ChangeStoragePathActivity"
             android:theme="@style/Base.Theme.AppCompat.Dialog">
             <intent-filter>
                 <action android:name="com.genonbeta.intent.action.UPDATE_STORAGE_PATH" />
@@ -125,54 +125,54 @@
         </activity>
 
         <activity
-            android:name=".cleaner.CleanerPromptActivity"
+            android:name="com.black_onyx.Presto.cleaner.CleanerPromptActivity"
             android:label="@string/title_activity_prompt"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
         <activity
-            android:name=".cleaner.CleanerWhitelistActivity"
-            android:parentActivityName=".cleaner.CleanerSettingsActivity"
+            android:name="com.black_onyx.Presto.cleaner.CleanerWhitelistActivity"
+            android:parentActivityName="com.black_onyx.Presto.cleaner.CleanerSettingsActivity"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
         <activity
-            android:name=".cleaner.CleanerMainActivity"
+            android:name="com.black_onyx.Presto.cleaner.CleanerMainActivity"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar">
         </activity>
         <activity
-            android:name=".cleaner.CleanerSettingsActivity"
-            android:parentActivityName=".cleaner.CleanerMainActivity"
+            android:name="com.black_onyx.Presto.cleaner.CleanerSettingsActivity"
+            android:parentActivityName="com.black_onyx.Presto.cleaner.CleanerMainActivity"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
 
         <activity
-            android:name=".activity.AboutActivity"
+            android:name="com.black_onyx.Presto.activity.AboutActivity"
             android:label="@string/text_about"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
-            android:name=".activity.ThirdPartyLibrariesActivity"
+            android:name="com.black_onyx.Presto.activity.ThirdPartyLibrariesActivity"
             android:label="@string/text_thirdPartyLibraries" />
         <activity
-            android:name=".activity.ChangelogActivity"
+            android:name="com.black_onyx.Presto.activity.ChangelogActivity"
             android:label="@string/text_changelog" />
         <activity
-            android:name=".activity.BarcodeScannerActivity"
+            android:name="com.black_onyx.Presto.activity.BarcodeScannerActivity"
             android:label="@string/text_scanQrCode"
             android:theme="@style/Theme.TrebleShot.BarcodeScannerActivity" /> <!-- todo: Remember, we are always using dark theme for this for better effects -->
         <activity
-            android:name=".activity.WelcomeActivity"
+            android:name="com.black_onyx.Presto.activity.WelcomeActivity"
             android:label="@string/text_welcome"
             android:theme="@style/Theme.TrebleShot.NoActionBar" />
         <activity
-            android:name=".activity.WebShareActivity"
+            android:name="com.black_onyx.Presto.activity.WebShareActivity"
             android:label="@string/text_webShare"
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
-        <activity android:name=".wordsearch.features.SplashScreenActivity" />
-        <activity android:name=".wordsearch.features.FullscreenActivity" />
-        <activity android:name=".wordsearch.features.gamehistory.GameHistoryActivity" />
-        <activity android:name=".wordsearch.features.gameover.GameOverActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.SplashScreenActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.FullscreenActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.gamehistory.GameHistoryActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.gameover.GameOverActivity" />
         <activity
-            android:name=".wordsearch.features.gameplay.GamePlayActivity"
+            android:name="com.black_onyx.Presto.wordsearch.features.gameplay.GamePlayActivity"
             android:theme="@style/Theme.TrebleShot.NoActionBar" />
-        <activity android:name=".wordsearch.features.mainmenu.MainMenuActivity" />
-        <activity android:name=".wordsearch.features.settings.AppCompatPreferenceActivity" />
-        <activity android:name=".wordsearch.features.settings.SettingsActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.mainmenu.MainMenuActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.settings.AppCompatPreferenceActivity" />
+        <activity android:name="com.black_onyx.Presto.wordsearch.features.settings.SettingsActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -189,7 +189,7 @@
         </provider>
 
         <receiver
-            android:name=".receiver.NetworkStatusReceiver"
+            android:name="com.black_onyx.Presto.receiver.NetworkStatusReceiver"
             android:process=":transfer">
             <intent-filter>
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
@@ -199,7 +199,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".receiver.DialogEventReceiver"
+            android:name="com.black_onyx.Presto.receiver.DialogEventReceiver"
             android:process=":transfer" />
 
 <!--        <receiver-->
@@ -212,19 +212,19 @@
 <!--        </receiver>-->
 
         <service
-            android:name=".service.CommunicationService"
+            android:name="com.black_onyx.Presto.service.CommunicationService"
             android:enabled="true"
             android:label="@string/text_communicationService"
             android:process=":transfer" />
         <service
-            android:name=".service.DeviceChooserService"
+            android:name="com.black_onyx.Presto.service.DeviceChooserService"
             android:label="@string/text_chooserTargetService"
             android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
             <intent-filter>
                 <action android:name="android.service.chooser.ChooserTargetService" />
             </intent-filter>
         </service>
-        <service android:name=".service.DeviceScannerService">
+        <service android:name="com.black_onyx.Presto.service.DeviceScannerService">
             <intent-filter>
                 <action android:name="genonbeta.intent.action.SCAN_DEVICES" />
                 <action android:name="genonbeta.intent.action.ADD_IP" />
@@ -233,10 +233,10 @@
             </intent-filter>
         </service>
         <service
-            android:name=".service.WorkerService"
+            android:name="com.black_onyx.Presto.service.WorkerService"
             android:label="@string/text_workerService" />
         <service
-            android:name=".service.CommunicationToggleTile"
+            android:name="com.black_onyx.Presto.service.CommunicationToggleTile"
             android:icon="@drawable/ic_trebleshot_white_24dp_static"
             android:label="@string/text_shareFiles"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"

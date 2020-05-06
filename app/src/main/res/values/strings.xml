@@ -297,7 +297,7 @@
     <string name="text_internalStorage">Internal storage</string>
     <string name="text_emptySearchResult">No result for \"%s\"</string>
     <string name="mesg_listRefreshSnoozed">The list will be refreshed whenever available</string>
-    <string name="mesg_errorReadFolder">Can not access \"%s\"</string>
+    <string name="mesg_errorReadFolder">Cannot access \"%s\"</string>
     <string name="butn_mountDirectory">Mount folder</string>
     <string name="mesg_mountDirectoryHelp">Select the folder you want to access</string>
     <string name="butn_ejectDirectory">Unmount folder</string>
@@ -555,7 +555,7 @@
     <string name="whitelist_sum">Shows the paths to exclude from scans</string>
     <string name="suggestion_sum">Open an issue on GitHub from the app. No account needed</string>
     <string name="generic_sum">.tmp, .log, Logs, logs</string>
-    <string name="aggressive_sum">Too much to list here</string>
+    <string name="aggressive_sum">Thumbnails, Cache and more</string>
     <string name="apk_sum">Installer files for android</string>
     <string name="oneclick_sum">No dialog menu when clicking Clean</string>
     <string name="autowhite_sum">Detect folders that should be protected automatically</string>

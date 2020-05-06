@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="com.bhuvan_kumar.Presto.fragment.ShareHomeFragment">
+    tools:context="com.black_onyx.Presto.fragment.ShareHomeFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

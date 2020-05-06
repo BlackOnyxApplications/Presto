@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/layout_licences_fragment"
-        android:name="com.bhuvan_kumar.Presto.fragment.external.ThirdPartyLibraryListFragment"
+        android:name="com.black_onyx.Presto.fragment.external.ThirdPartyLibraryListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:tag="licencesListFragment" />

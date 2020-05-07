@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.black_onyx.Presto.activity.WebShareActivity">
+    tools:context="com.bhuvan_kumar.Presto.activity.WebShareActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/mainContainer"
-        android:name="com.black_onyx.Presto.fragment.ActiveConnectionListFragment"
+        android:name="com.bhuvan_kumar.Presto.fragment.ActiveConnectionListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

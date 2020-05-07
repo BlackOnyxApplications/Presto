@@ -1,4 +1,4 @@
-<com.black_onyx.Presto.view.ComparativeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -77,4 +77,4 @@
         android:textColor="@android:color/white"
         android:visibility="gone" />
 
-</com.black_onyx.Presto.view.ComparativeRelativeLayout>
+</com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout>

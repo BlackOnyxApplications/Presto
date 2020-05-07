@@ -9,7 +9,7 @@
     android:background="?rectSelector"
     android:orientation="vertical">
 
-    <com.black_onyx.Presto.view.ComparativeRelativeLayout
+    <com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -34,7 +34,7 @@
             android:visibility="gone"
             app:tint="?colorControlNormal" />
 
-    </com.black_onyx.Presto.view.ComparativeRelativeLayout>
+    </com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout>
 
     <LinearLayout
         android:id="@+id/infoContainer"

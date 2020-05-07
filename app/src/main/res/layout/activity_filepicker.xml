@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context="com.black_onyx.Presto.activity.FilePickerActivity">
+    tools:context="com.bhuvan_kumar.Presto.activity.FilePickerActivity">
 
     <fragment
         android:id="@+id/activitiy_filepicker_fragment_files"
-        android:name="com.black_onyx.Presto.fragment.FileExplorerFragment"
+        android:name="com.bhuvan_kumar.Presto.fragment.FileExplorerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="false"
-    tools:context="com.black_onyx.Presto.activity.AboutActivity">
+    tools:context="com.bhuvan_kumar.Presto.activity.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -274,7 +274,7 @@
 
                         <fragment
                             android:id="@+id/activity_about_contributors_fragment"
-                            android:name="com.black_onyx.Presto.fragment.external.GitHubContributorsListFragment"
+                            android:name="com.bhuvan_kumar.Presto.fragment.external.GitHubContributorsListFragment"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="10dp"

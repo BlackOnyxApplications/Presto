@@ -1,4 +1,4 @@
-<com.black_onyx.Presto.view.ComparativeRelativeLayout
+<com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -56,4 +56,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</com.black_onyx.Presto.view.ComparativeRelativeLayout>
+</com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout>

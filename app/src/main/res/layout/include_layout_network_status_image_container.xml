@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.black_onyx.Presto.view.ComparativeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_hotspot_status_qr_image_container"
     android:layout_width="match_parent"
@@ -14,4 +14,4 @@
         android:contentDescription="@string/text_scanQRCodeHelp"
         app:srcCompat="@drawable/ic_qrcode_white_128dp" />
 
-</com.black_onyx.Presto.view.ComparativeRelativeLayout>
+</com.bhuvan_kumar.Presto.view.ComparativeRelativeLayout>

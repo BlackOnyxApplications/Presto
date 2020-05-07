@@ -537,7 +537,7 @@
     <string name="analyze">Analyze</string>
     <string name="enable_generic_filter">Enable generic filter</string>
     <string name="one_click_clean">One click clean</string>
-    <string name="freed">Freed: </string>
+    <string name="freed">Cleaned: </string>
     <string name="found">Found: </string>
     <string name="auto_whitelist">Auto Whitelist</string>
     <string name="reset_whitelist">Empty whitelist?</string>

@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/activity_changelog_fragment_changelog"
-        android:name="com.black_onyx.Presto.fragment.external.GitHubChangelogListFragment"
+        android:name="com.bhuvan_kumar.Presto.fragment.external.GitHubChangelogListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:tag="changeLogFragment" />

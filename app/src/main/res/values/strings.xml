@@ -154,6 +154,7 @@
     <string name="text_fileStatus">File status</string>
     <string name="status">Status</string>
     <string name="youtube">Youtube</string>
+    <string name="instagram">Instagram download</string>
     <string name="butn_resume">Resume</string>
     <string name="text_transactionDetails">Details</string>
     <string name="text_fileExplorer">File explorer</string>
@@ -563,10 +564,30 @@
     <string name="settings_string">Settings</string>
     <string name="title_activity_prompt">PromptActivity</string>
 
+    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>
+    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>
+
+    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>
+    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>
+
+
+    <!--    Admob ids-->
+    <!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+
+    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>
+    <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
+    <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
+    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
+    <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
+
     <string-array name="generic_filter_folders">
         <item>Logs</item>
         <item>logs</item>
@@ -574,7 +595,6 @@
         <item>Temporary</item>
         <item>temporary</item>
     </string-array>
-
     <string-array name="aggressive_filter_folders">
         <item>supersonicads</item>
         <item>Cache</item>
@@ -598,24 +618,5 @@
         <item>.exo</item>
         <item>thumbs?.db</item>
     </string-array>
-
-
-    <!--    Admob ids-->
-    <!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-
-    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>
-    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>
-    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>
-    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>
-    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>
-    <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
-
-    <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
-    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
-    <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
 
 </resources>

@@ -96,7 +96,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/ic_volume_full"
-            app:srcCompat="@drawable/ic_volume_full"
+            app:srcCompat="@drawable/ic_volume_up"
             android:tint="@color/colorPrimary"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"

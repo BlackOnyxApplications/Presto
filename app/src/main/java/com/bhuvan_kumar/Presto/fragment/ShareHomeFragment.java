@@ -25,7 +25,9 @@ import com.bhuvan_kumar.Presto.activity.ConnectionManagerActivity;
 import com.bhuvan_kumar.Presto.activity.ContentSharingActivity;
 import com.bhuvan_kumar.Presto.activity.StatusSaverActivity;
 //import com.bhuvan_kumar.Presto.activity.YoutubeVideoSaver;
+import com.bhuvan_kumar.Presto.activity.WebShareActivity;
 import com.bhuvan_kumar.Presto.cleaner.CleanerMainActivity;
+import com.bhuvan_kumar.Presto.instagram.InstaDownloaderActivity;
 import com.bhuvan_kumar.Presto.service.CommunicationService;
 import com.bhuvan_kumar.Presto.ui.callback.IconSupport;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;
@@ -65,6 +67,13 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
 
         View viewSend = view.findViewById(R.id.sendLayoutButton);
         View viewReceive = view.findViewById(R.id.receiveLayoutButton);
+        View shareBrowser = view.findViewById(R.id.share_browser);
+        shareBrowser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), WebShareActivity.class));
+            }
+        });
 
         View gameButton = view.findViewById(R.id.game);
         gameButton.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +157,15 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
             public void onClick(View v) {
                 Intent statusSaverIntent = new Intent(getActivity(), StatusSaverActivity.class);
                 startActivity(statusSaverIntent);
+            }
+        });
+
+        CardView instagramCard = view.findViewById(R.id.insta_card);
+        instagramCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent instaIntent = new Intent(getActivity(), InstaDownloaderActivity.class);
+                startActivity(instaIntent);
             }
         });
 

@@ -16,10 +16,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 import com.bhuvan_kumar.Presto.GlideApp;
 import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.config.Keyword;
+import com.bhuvan_kumar.Presto.instagram.Helpers;
+import com.bhuvan_kumar.Presto.instagram.InstaDownloaderActivity;
 import com.bhuvan_kumar.Presto.ui.UIConnectionUtils;
 import com.bhuvan_kumar.Presto.util.AppUtils;
 import com.bhuvan_kumar.Presto.util.CommunicationBridge;
@@ -91,6 +94,20 @@ public class TextEditorActivity extends Activity implements SnackbarSupport
                 mEditTextEditor
                         .getText()
                         .append(getIntent().getStringExtra(EXTRA_TEXT_INDEX));
+        }
+
+        String instaLink = mEditTextEditor.getText().toString().trim();
+        if(Helpers.isInstagramUrlValid(instaLink)){
+            CardView youtube_saver_card = findViewById(R.id.insta_saver_card);
+            youtube_saver_card.setVisibility(View.VISIBLE);
+            youtube_saver_card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent instaIntent = new Intent(TextEditorActivity.this, InstaDownloaderActivity.class);
+                    instaIntent.putExtra("LINK", instaLink);
+                    startActivity(instaIntent);
+                }
+            });
         }
 
 //        String youtube_link = mEditTextEditor.getText().toString().trim();

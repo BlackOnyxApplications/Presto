@@ -164,7 +164,6 @@ public class StatusSaverActivity extends Activity {
         recyclerViewAdapter.notifyDataSetChanged();
     }
 
-
     private ArrayList<Object> getData() {
         filesList = new ArrayList<>();
         StoryModel f;

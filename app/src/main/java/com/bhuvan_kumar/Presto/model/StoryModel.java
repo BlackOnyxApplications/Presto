@@ -7,12 +7,14 @@ public class StoryModel {
     private Uri uri;
     private String path;
     private String filename;
+    private double filesize;
 
-    public StoryModel(String name, Uri uri, String path, String filename) {
+    public StoryModel(String name, Uri uri, String path, String filename, double filesize) {
         this.name = name;
         this.uri = uri;
         this.path = path;
         this.filename = filename;
+        this.filesize = filesize;
     }
 
     public StoryModel() {
@@ -49,5 +51,13 @@ public class StoryModel {
 
     public void setUri(Uri uri) {
         this.uri = uri;
+    }
+
+    public double getFileSize() {
+        return filesize;
+    }
+
+    public void setFileSize(double filesize) {
+        this.filesize = filesize;
     }
 }

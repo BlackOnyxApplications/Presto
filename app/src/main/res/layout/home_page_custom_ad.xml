@@ -14,10 +14,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="15dp">
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:id="@+id/ad_app_icon"/>
                 <HorizontalScrollView
                     android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/ad_headline"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
                 </HorizontalScrollView>
                 <TextView
                     android:layout_width="wrap_content"

@@ -35,8 +35,8 @@ android {
         applicationId "com.bhuvan_kumar.Presto"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 7
-        versionName "0.7"
+        versionCode 10
+        versionName "0.8.2"
         multiDexEnabled true
 
         vectorDrawables {
@@ -171,6 +171,8 @@ dependencies {
     implementation 'com.fxn769:stash:1.3.2'
     implementation 'com.github.medyo:fancybuttons:1.9.1'
 
-    implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
+//    implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
+    implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
 }

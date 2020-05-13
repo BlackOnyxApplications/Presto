@@ -4,7 +4,7 @@
         android:id="@+id/action_mode_share_trebleshot"
         android:icon="@drawable/ic_send_white_24dp"
         android:title="@string/butn_shareWithTrebleshot"
-        app:showAsAction="always" />
+        android:showAsAction="always"/>
 
     <item
         android:id="@+id/action_mode_share_all_apps"

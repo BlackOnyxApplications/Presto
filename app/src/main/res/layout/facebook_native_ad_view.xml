@@ -11,11 +11,11 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:padding="15dp">
             <com.facebook.ads.AdIconView
                 android:id="@+id/fb_native_ad_icon"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/fb_ad_headline"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
             </HorizontalScrollView>
             <TextView
                 android:layout_width="wrap_content"

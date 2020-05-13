@@ -29,7 +29,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/youtube_saver_card"
+            android:id="@+id/insta_saver_card"
             android:layout_margin="2dp"
             android:gravity="center"
             android:layout_gravity="center"
@@ -42,14 +42,14 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:tint="@color/colorSecondary"
-                    android:src="@drawable/youtube"/>
+                    android:src="@drawable/instagram"/>
                 <TextView
                     style="@style/TextAppearance.Primary.Big.SingleLine"
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/youtube"
+                    android:text="@string/instagram"
                     android:textSize="20sp"
                     android:layout_gravity="center"/>
             </LinearLayout>

@@ -475,6 +475,7 @@
     <string name="mesg_textStreamSaved">Text saved</string>
     <string name="butn_changeMode">Change mode</string>
     <string name="mesg_qrScannerTextMode">QR codes will be shown as text</string>
+    <string name="mesg_turnNetworkOff">Turn mobile data \"OFF\" for your security</string>
     <string name="mesg_qrScannerDefaultMode">Back to the default actions for QR codes</string>
     <string name="butn_showAsQrCode">Show as QR code</string>
     <string name="text_showAsQrCode" translatable="false">@string/butn_showAsQrCode</string>

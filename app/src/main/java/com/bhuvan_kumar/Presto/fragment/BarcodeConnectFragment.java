@@ -12,10 +12,14 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -57,7 +61,11 @@ import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * created by: Bk
@@ -416,12 +424,29 @@ public class BarcodeConnectFragment
                 == PackageManager.PERMISSION_GRANTED;
         final boolean hasLocationPermission = Build.VERSION.SDK_INT < 26 // With Android Oreo, to gather Wi-Fi information, minimal access to location is needed
                 || mConnectionUtils.getConnectionUtils().canAccessLocation();
-        final boolean state = (wifiEnabled || mShowAsText) && hasCameraPermission && hasLocationPermission;
+        final boolean isNetworkEnabled = getMobileDataState();
+        final boolean state = (!isNetworkEnabled) && (wifiEnabled || mShowAsText) && hasCameraPermission && hasLocationPermission;
+
+//        Log.e(TAG, "isNetworkEnabled: " + isNetworkEnabled);
 
         if (!state) {
             mBarcodeView.pauseAndWait();
 
-            if (!hasCameraPermission) {
+            if(isNetworkEnabled){
+                mConductText.setText(R.string.mesg_turnNetworkOff);
+                mConductImage.setImageResource(R.drawable.ic_network);
+                mConductButton.setText(R.string.butn_disconnect);
+                mConductButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        startActivity(new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS));
+                        updateState();
+                    }
+                });
+            }else
+                if (!hasCameraPermission) {
                 mConductImage.setImageResource(R.drawable.ic_camera_white_144dp);
                 mConductText.setText(R.string.text_cameraPermissionRequired);
                 mConductButton.setText(R.string.butn_ask);
@@ -478,6 +503,29 @@ public class BarcodeConnectFragment
 
         setConductItemsShowing(!state);
         mBarcodeView.setVisibility(state ? View.VISIBLE : View.GONE);
+    }
+
+    private boolean getMobileDataState() {
+        if(getActivity() != null) {
+            try {
+                TelephonyManager telephonyService = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+                Method getMobileDataEnabledMethod = Objects.requireNonNull(telephonyService).getClass().getDeclaredMethod("getDataEnabled");
+                return (boolean) (Boolean) getMobileDataEnabledMethod.invoke(telephonyService);
+            } catch (Exception ex) {
+                Log.e(TAG, "Error getting mobile data state", ex);
+            }
+        }
+        return false;
+    }
+
+    private boolean isNetworkAvailable() {
+        if(getActivity() != null) {
+            ConnectivityManager connectivityManager
+                    = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        }
+        return false;
     }
 
     protected void setConductItemsShowing(boolean showing)

@@ -6,7 +6,7 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:appComponentFactory="@string/app_name"
+        android:appComponentFactory="Cleaner"
         android:fullBackupContent="true"
         android:icon="@drawable/presto_p_png_no_shadow"
         android:label="@string/text_appName"
@@ -14,10 +14,11 @@
         android:theme="@style/Theme.TrebleShot"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
-        tools:replace="android:appComponentFactory">
-        <activity android:name=".instagram.InstaDownloaderActivity"
-            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
-        <!-- <activity -->
+        tools:replace="android:appComponentFactory, android:icon, android:label, android:theme">
+
+        <activity
+            android:name=".instagram.InstaDownloaderActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" /> <!-- <activity -->
         <!-- android:name=".activity.YoutubeVideoSaver" -->
         <!-- android:theme="@style/Theme.TrebleShot.NoActionBar"> -->
         <!-- </activity> -->
@@ -135,7 +136,7 @@
             android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
             android:name=".cleaner.CleanerMainActivity"
-            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar"/>
+            android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" />
         <activity
             android:name=".cleaner.CleanerSettingsActivity"
             android:parentActivityName=".cleaner.CleanerMainActivity"
@@ -172,6 +173,9 @@
         <activity android:name=".wordsearch.features.mainmenu.MainMenuActivity" />
         <activity android:name=".wordsearch.features.settings.AppCompatPreferenceActivity" />
         <activity android:name=".wordsearch.features.settings.SettingsActivity" />
+        <activity
+            android:name=".screenshare.main.view.ScreenShareActivity"
+            android:theme="@style/Theme.TrebleShot.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

@@ -13,10 +13,6 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by abdularis on 18/07/17.
- */
-
 @Module
 public class DataSourceModule {
 

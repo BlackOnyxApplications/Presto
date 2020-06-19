@@ -129,6 +129,31 @@
                     android:layout_marginRight="20dp"
                     android:text="@string/butn_share"/>
             </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/contact_us"
+                    android:layout_marginTop="25dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="20dp"
+                        app:srcCompat="@drawable/heart"
+                        android:tint="@color/colorSecondary"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"/>
+                    <TextView
+                        style="@style/TextAppearance.Primary.Big.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/butn_contact"/>
+                </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

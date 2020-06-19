@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
- import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -75,6 +75,15 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
             }
         });
 
+        View shareScreen = view.findViewById(R.id.share_screen);
+        shareScreen.setVisibility(View.GONE);
+        shareScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), ScreenMirrorMainActivity.class));
+            }
+        });
+
         View gameButton = view.findViewById(R.id.game);
         gameButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +135,7 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
             }else{
                 werbAppView.setVisibility(View.VISIBLE);
             }
+            werbAppView.setVisibility(View.GONE);
         }
         werbAppView.setOnClickListener(new View.OnClickListener() {
             @Override

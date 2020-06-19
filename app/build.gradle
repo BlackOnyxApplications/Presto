@@ -31,12 +31,16 @@ android {
         }
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.bhuvan_kumar.Presto"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 11
-        versionName "0.8.3"
+        versionCode 12
+        versionName "0.8.5"
         multiDexEnabled true
 
         vectorDrawables {
@@ -74,6 +78,12 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+
+//    configurations {
+//        all {
+//            exclude group: "org.apache.commons", module: "commons-io"
+//        }
+//    }
 }
 
 task copyHebrewResources(type: Copy) {
@@ -163,7 +173,7 @@ dependencies {
     implementation 'com.facebook.android:audience-network-sdk:5.8.0'
     implementation 'com.android.support:support-annotations:28.0.0'
 
-    implementation 'commons-io:commons-io:2.0.1'
+//    implementation 'commons-io:commons-io:2.5'
 //    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
 //    implementation 'org.aspectj:aspectjrt:1.8.13'
 //    implementation 'com.googlecode.mp4parser:isoparser:1.1.22'
@@ -174,5 +184,8 @@ dependencies {
 //    implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
     implementation 'org.jsoup:jsoup:1.11.3'
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+//    implementation project(path: ':screen_mirror')
+
+    implementation 'com.yanzhenjie:andserver:1.0.3'
 
 }

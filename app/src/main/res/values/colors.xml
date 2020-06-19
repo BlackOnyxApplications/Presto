@@ -37,7 +37,7 @@
     <color name="dark_colorOnSecondary">@color/dark_colorControlNormal</color>
     <color name="dark_colorPrimary">#1E1E1E</color>
     <color name="dark_colorPrimaryDark">@color/dark_colorPrimary</color>
-    <color name="dark_colorSecondary">#ffff5349</color>
+    <color name="dark_colorSecondary">@color/colorSecondary</color>
 
     <color name="dark_colorSurface">#2E2E2E</color>
     <color name="dark_windowBackground">@color/dark_colorPrimary</color>
@@ -61,7 +61,7 @@
     <color name="black_surface">#1a1a1a</color>
 
 
-    <color name="colorAccent">#ffff5349</color>
+    <color name="colorAccent">@color/colorSecondary</color>
     <color name="selTextBgColor">#F06292</color>
 
     <color name="gray">#aa808080</color>

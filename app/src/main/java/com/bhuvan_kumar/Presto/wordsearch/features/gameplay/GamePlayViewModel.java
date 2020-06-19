@@ -81,16 +81,18 @@ public class GamePlayViewModel extends ViewModel {
     private SingleLiveEvent<AnswerResult> mOnAnswerResult;
 
     public GamePlayViewModel(GameDataSource gameDataSource, WordDataSource wordDataSource) {
-        mGameDataSource = gameDataSource;
-        mWordDataSource = wordDataSource;
-        mGameDataCreator = new GameDataCreator();
+        if ((gameDataSource != null) && (wordDataSource != null)){
+            mGameDataSource = gameDataSource;
+            mWordDataSource = wordDataSource;
+            mGameDataCreator = new GameDataCreator();
 
-        mTimer = new Timer(TIMER_TIMEOUT);
-        mTimer.addOnTimeoutListener(elapsedTime -> {
-            mOnTimer.setValue(mCurrentDuration++);
-            mGameDataSource.saveGameDataDuration(mCurrentGameData.getId(), mCurrentDuration);
-        });
-        resetLiveData();
+            mTimer = new Timer(TIMER_TIMEOUT);
+            mTimer.addOnTimeoutListener(elapsedTime -> {
+                mOnTimer.setValue(mCurrentDuration++);
+                mGameDataSource.saveGameDataDuration(mCurrentGameData.getId(), mCurrentDuration);
+            });
+            resetLiveData();
+        }
     }
 
     private void resetLiveData() {

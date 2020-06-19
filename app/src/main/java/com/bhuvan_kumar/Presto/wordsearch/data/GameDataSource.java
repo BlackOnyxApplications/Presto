@@ -6,9 +6,6 @@ import com.bhuvan_kumar.Presto.wordsearch.model.UsedWord;
 
 import java.util.List;
 
-/**
- * Created by abdularis on 18/07/17.
- */
 
 public interface GameDataSource {
 

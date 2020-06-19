@@ -16,10 +16,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.xml.parsers.SAXParserFactory;
 
-/**
- * Created by abdularis on 31/07/17.
- */
-
 public class WordXmlDataSource implements WordDataSource {
 
     private static final String ASSET_WORD_BANK_FILE = "words.xml";

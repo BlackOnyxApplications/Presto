@@ -9,9 +9,6 @@ import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by abdularis on 31/07/17.
- */
 
 class SaxWordBankHandler extends DefaultHandler {
 

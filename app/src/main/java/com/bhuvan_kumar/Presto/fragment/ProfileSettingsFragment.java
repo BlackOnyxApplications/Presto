@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -21,6 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bhuvan_kumar.Presto.GlideApp;
 import com.bhuvan_kumar.Presto.activity.ManageDevicesActivity;
@@ -97,11 +99,13 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
         LinearLayout preferences = view.findViewById(R.id.preferences);
         LinearLayout share_app = view.findViewById(R.id.share_app);
         LinearLayout clear_preferences = view.findViewById(R.id.clear_preferences);
+        LinearLayout contact_us = view.findViewById(R.id.contact_us);
 
         trused_devices.setOnClickListener(this);
         preferences.setOnClickListener(this);
         share_app.setOnClickListener(this);
         clear_preferences.setOnClickListener(this);
+        contact_us.setOnClickListener(this);
 
         initializeAds(view);
         return view;
@@ -367,27 +371,6 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
                 .show();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.trusted_devices:
-                startActivity(new Intent(getActivity(), ManageDevicesActivity.class));
-                break;
-
-            case R.id.preferences:
-                startActivity(new Intent(getActivity(), PreferencesActivity.class));
-                break;
-
-            case R.id.share_app:
-                shareApp();
-                break;
-
-            case R.id.clear_preferences:
-                constructResetDialog();
-                break;
-        }
-    }
-
     private void shareApp(){
         final Context context = getActivity();
         assert context != null;
@@ -411,4 +394,69 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
             }
         });
     }
+
+    private void contactUs(){
+        final Context context = getActivity();
+        assert context != null;
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.share_feedback)
+                .setMessage(R.string.text_message_contact_us)
+                .setNegativeButton(R.string.butn_email, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                        emailIntent.setData(Uri.parse("mailto:" + AppConfig.EMAIL_DEVELOPER));
+                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Presto: Suggestions/Issues");
+                        emailIntent.putExtra(Intent.EXTRA_TEXT, "");
+
+                        try {
+                            startActivity(Intent.createChooser(emailIntent, "Send email using"));
+                        } catch (android.content.ActivityNotFoundException ex) {
+                            Toast.makeText(context, "No email clients installed.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .setPositiveButton(R.string.butn_facebook_connect, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Intent intent = null;
+                        try {
+                            context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
+                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/113656107024423"));
+                        } catch (Exception e) {
+                            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/PrestoShare"));
+                        }
+                        startActivity(intent);
+                    }
+                })
+                .show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.trusted_devices:
+                startActivity(new Intent(getActivity(), ManageDevicesActivity.class));
+                break;
+
+            case R.id.preferences:
+                startActivity(new Intent(getActivity(), PreferencesActivity.class));
+                break;
+
+            case R.id.share_app:
+                shareApp();
+                break;
+
+            case R.id.clear_preferences:
+                constructResetDialog();
+                break;
+
+            case R.id.contact_us:
+                contactUs();
+                break;
+        }
+    }
+
 }

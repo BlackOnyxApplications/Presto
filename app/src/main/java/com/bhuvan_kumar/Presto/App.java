@@ -58,6 +58,8 @@ public class App extends Application
 ////            GitHubUpdater updater = UpdateUtils.getDefaultUpdater(getApplicationContext());
 ////            UpdateUtils.checkForUpdates(getApplicationContext(), updater, false, null);
 //        }
+
+
     }
 
     public AppComponent getAppComponent() {

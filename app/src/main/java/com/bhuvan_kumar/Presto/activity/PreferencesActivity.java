@@ -50,7 +50,9 @@ public class PreferencesActivity extends Activity
                         }
                     })
                     .show();
-        } else
+        } else if (id == android.R.id.home)
+            onBackPressed();
+        else
             return super.onOptionsItemSelected(item);
 
         return true;

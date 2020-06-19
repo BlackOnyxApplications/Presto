@@ -38,9 +38,11 @@
     <string name="text_fileOpenAppChoose">Open with</string>
     <string name="text_fileShareAppChoose">Choose an app to share with</string>
     <string name="ques_resetToDefault">Reset to default?</string>
+    <string name="share_feedback">Share your feedback</string>
     <string name="text_receivedFiles">Received files</string>
     <string name="butn_edit">Edit</string>
     <string name="butn_share">Share</string>
+    <string name="butn_contact">Contact us</string>
     <string name="butn_delete">Delete</string>
     <string name="text_deleteConfirm">Confirm deletion</string>
     <string name="butn_cancel">Cancel</string>
@@ -111,6 +113,8 @@
     <string name="butn_killNow">Kill now</string>
     <string name="mesg_groupOngoingNotice">Waiting for %s to finish before transferring this file</string>
     <string name="butn_proceed">Proceed</string>
+    <string name="butn_email">Email</string>
+    <string name="butn_facebook_connect">Facebook</string>
     <string name="ques_removeQueue">Remove transfer?</string>
     <string name="butn_remove">Remove</string>
     <string name="butn_removeAll">Remove all</string>
@@ -271,6 +275,7 @@
     <string name="text_allowingToConnectNotice">Allow connections from this device</string>
     <string name="butn_resetToDefault">Reset</string>
     <string name="text_resetPreferencesToDefaultSummary">This will apply initial settings</string>
+    <string name="text_message_contact_us">You are important to us.If you have any issues or suggestions, do let us know!</string>
     <string name="text_workerService">Worker service</string>
     <string name="text_taskCompleted">Task completed</string>
     <string name="text_deletingFilesOngoing">Deleting selected files</string>
@@ -451,6 +456,7 @@
     <string name="butn_enterIpAddress">Enter IP Address</string>
     <string name="text_enterIpAddress" translatable="false">@string/butn_enterIpAddress</string>
     <string name="butn_webShare">Share via browser</string>
+    <string name="text_screenShare">Share Screen</string>
     <string name="text_webShare" translatable="false">@string/butn_webShare</string>
     <string name="text_webShareNoContentNotice">Use \'Share on browser\' option to see transfers here!</string>
     <string name="butn_shareOnBrowser">Share on browser</string>
@@ -584,6 +590,7 @@
     <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
     <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
     <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
+    <string name="share_screen">Share screen</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>

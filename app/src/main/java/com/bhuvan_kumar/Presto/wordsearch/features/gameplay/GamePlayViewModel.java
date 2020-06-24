@@ -87,10 +87,10 @@ public class GamePlayViewModel extends ViewModel {
             mGameDataCreator = new GameDataCreator();
 
             mTimer = new Timer(TIMER_TIMEOUT);
-            mTimer.addOnTimeoutListener(elapsedTime -> {
-                mOnTimer.setValue(mCurrentDuration++);
-                mGameDataSource.saveGameDataDuration(mCurrentGameData.getId(), mCurrentDuration);
-            });
+//            mTimer.addOnTimeoutListener(elapsedTime -> {
+//                mOnTimer.setValue(mCurrentDuration++);
+////                mGameDataSource.saveGameDataDuration(mCurrentGameData.getId(), mCurrentDuration);
+//            });
             resetLiveData();
         }
     }
@@ -103,18 +103,18 @@ public class GamePlayViewModel extends ViewModel {
 
     public void stopGame() {
         mCurrentGameData = null;
-        mTimer.stop();
+//        mTimer.stop();
         resetLiveData();
     }
 
     public void pauseGame() {
-        mTimer.stop();
+//        mTimer.stop();
         setGameState(new Paused());
     }
 
     public void resumeGame() {
         if (mCurrentState instanceof Paused) {
-            mTimer.start();
+//            mTimer.start();
             setGameState(new Playing(mCurrentGameData));
         }
     }
@@ -125,9 +125,9 @@ public class GamePlayViewModel extends ViewModel {
 
             mGameDataSource.getGameData(gid, gameRound -> {
                 mCurrentGameData = new GameDataMapper().map(gameRound);
-                mCurrentDuration = mCurrentGameData.getDuration();
+//                mCurrentDuration = mCurrentGameData.getDuration();
                 if (!mCurrentGameData.isFinished())
-                    mTimer.start();
+//                    mTimer.start();
                 setGameState(new Playing(mCurrentGameData));
             });
         }
@@ -149,7 +149,7 @@ public class GamePlayViewModel extends ViewModel {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(gameRound -> {
                         mCurrentDuration = 0;
-                        mTimer.start();
+//                        mTimer.start();
                         mCurrentGameData = gameRound;
                         setGameState(new Playing(mCurrentGameData));
                     });

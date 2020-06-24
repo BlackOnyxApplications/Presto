@@ -465,7 +465,7 @@
     <string name="mode_webShareAddress">http://%s:%d/</string>
     <string name="text_or">or</string>
     <string name="text_visitWebShareAddress">Visit this link with your browser</string>
-    <string name="text_webShareInfo">Enable web-sharing for transfers individually and visit any web-link shown below with a device that is connected to the same network.</string>
+    <string name="text_webShareInfo">Enable web-sharing for transfers individually and visit any web-link shown below with a device that is connected to the same network. Do not forget to press PLAY button.</string>
     <string name="text_dowloadTrebleshotAndroid">Download Presto for Android</string>
     <string name="text_listEmptyConnection">Networks you connect appear here</string>
     <string name="mesg_errorNotAnIpAddress">Not an IP Address

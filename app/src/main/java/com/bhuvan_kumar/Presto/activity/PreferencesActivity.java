@@ -61,7 +61,7 @@ public class PreferencesActivity extends Activity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.actions_preferences_main, menu);
+//        getMenuInflater().inflate(R.menu.actions_preferences_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

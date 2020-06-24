@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -45,13 +46,17 @@ public class InstagramDownloader {
                 case "image":
                     return downloadImage(url, targetDirectory);
                 default:
-                    System.out.println("Unable to download media file.");
+                    Log.e(TAG, "Unable to download media file.");
                     return false;
-
             }
 
         } catch (IOException e){
             e.printStackTrace();
+            return false;
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            return false;
+        } catch (Exception e){
             return false;
         }
     }

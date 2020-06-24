@@ -5,9 +5,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
@@ -29,12 +33,17 @@ import com.bhuvan_kumar.Presto.activity.ManageDevicesActivity;
 import com.bhuvan_kumar.Presto.activity.PreferencesActivity;
 import com.bhuvan_kumar.Presto.app.Activity;
 import com.bhuvan_kumar.Presto.config.AppConfig;
+import com.bhuvan_kumar.Presto.dialog.ProfileEditorDialog;
 import com.bhuvan_kumar.Presto.object.NetworkDevice;
 import com.bhuvan_kumar.Presto.service.CommunicationService;
 import com.bhuvan_kumar.Presto.ui.callback.IconSupport;
 import com.bhuvan_kumar.Presto.ui.callback.TitleSupport;
 import com.bhuvan_kumar.Presto.util.AppUtils;
 import com.bhuvan_kumar.Presto.R;
+import com.bumptech.glide.request.Request;
+import com.bumptech.glide.request.target.SizeReadyCallback;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdIconView;
@@ -54,10 +63,13 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MODE_PRIVATE;
 import static com.bhuvan_kumar.Presto.app.Activity.REQUEST_PICK_PROFILE_PHOTO;
 
 public class ProfileSettingsFragment extends Fragment implements IconSupport, TitleSupport, View.OnClickListener {
@@ -65,6 +77,7 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
     private TextView deviceNameText;
     private ImageView imageView;
     private UnifiedNativeAd nativeAd;
+    private ImageView dialogImageView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +104,7 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
             @Override
             public void onClick(View v)
             {
+//                new ProfileEditorDialog(activity).show();
                 showProfileEditorDialog();
             }
         });
@@ -264,14 +278,14 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(activity);
             LayoutInflater inflater = this.getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.layout_profile_editor, null);
-            final ImageView image = dialogView.findViewById(R.id.layout_profile_picture_image_default);
+            dialogImageView = dialogView.findViewById(R.id.layout_profile_picture_image_default);
             final ImageView editImage = dialogView.findViewById(R.id.layout_profile_picture_image_preferred);
             final EditText editText = dialogView.findViewById(R.id.editText);
             final String[] deviceName = {AppUtils.getLocalDeviceName(getContext())};
 
             editText.getText().clear();
             editText.getText().append(deviceName[0]);
-            loadProfilePictureInto(activity, deviceName[0], image);
+            loadProfilePictureInto(activity, deviceName[0], dialogImageView);
             editText.requestFocus();
 
             editImage.setOnClickListener(new View.OnClickListener()
@@ -290,6 +304,7 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
                 {
                     activity.deleteFile("profilePicture");
                     activity.notifyUserProfileChanged();
+                    imageView.setImageDrawable(AppUtils.getDefaultIconBuilder(activity).buildRound(deviceName[0]));
                 }
             });
 
@@ -336,6 +351,107 @@ public class ProfileSettingsFragment extends Fragment implements IconSupport, Ti
     @Override
     public CharSequence getTitle(Context context) {
         return "Settings";
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_PICK_PROFILE_PHOTO)
+            if (resultCode == RESULT_OK && data != null) {
+                Uri chosenImageUri = data.getData();
+                Activity activity = (Activity) getActivity();
+                if (chosenImageUri != null && activity != null && dialogImageView != null) {
+                    GlideApp.with(this)
+                            .load(chosenImageUri)
+                            .centerCrop()
+                            .override(200, 200)
+                            .into(new Target<Drawable>()
+                            {
+                                @Override
+                                public void onLoadStarted(@Nullable Drawable placeholder)
+                                {
+
+                                }
+
+                                @Override
+                                public void onLoadFailed(@Nullable Drawable errorDrawable)
+                                {
+
+                                }
+
+                                @Override
+                                public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition)
+                                {
+                                    try {
+                                        Bitmap bitmap = Bitmap.createBitmap(AppConfig.PHOTO_SCALE_FACTOR, AppConfig.PHOTO_SCALE_FACTOR, Bitmap.Config.ARGB_8888);
+                                        Canvas canvas = new Canvas(bitmap);
+                                        FileOutputStream outputStream = activity.openFileOutput("profilePicture", MODE_PRIVATE);
+
+                                        resource.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                                        resource.draw(canvas);
+                                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+
+                                        outputStream.close();
+                                        loadProfilePictureInto(activity, AppUtils.getLocalDeviceName(getContext()), dialogImageView);
+
+                                    } catch (Exception error) {
+                                        error.printStackTrace();
+                                    }
+                                }
+
+                                @Override
+                                public void onLoadCleared(@Nullable Drawable placeholder)
+                                {
+
+                                }
+
+                                @Override
+                                public void getSize(@NonNull SizeReadyCallback cb)
+                                {
+
+                                }
+
+                                @Override
+                                public void removeCallback(@NonNull SizeReadyCallback cb)
+                                {
+
+                                }
+
+                                @Nullable
+                                @Override
+                                public Request getRequest()
+                                {
+                                    return null;
+                                }
+
+                                @Override
+                                public void setRequest(@Nullable Request request)
+                                {
+
+                                }
+
+                                @Override
+                                public void onStart()
+                                {
+
+                                }
+
+                                @Override
+                                public void onStop()
+                                {
+
+                                }
+
+                                @Override
+                                public void onDestroy()
+                                {
+
+                                }
+                            });
+                }
+            }
     }
 
     private void toggleTrustZone()

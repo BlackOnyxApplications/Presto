@@ -106,7 +106,7 @@ public class WelcomeActivity extends Activity
             view.findViewById(R.id.layout_welcome_page_5_text)
                     .setAnimation(alphaAnimation);
 
-            pagerAdapter.addView(view);
+//            pagerAdapter.addView(view);
         }
         progressBar.setMax((pagerAdapter.getCount() - 1) * 100);
 

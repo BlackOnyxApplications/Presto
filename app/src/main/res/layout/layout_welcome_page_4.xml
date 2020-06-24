@@ -18,6 +18,6 @@
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:text="@string/text_introApplyTheme"
-        android:textSize="@dimen/font_size_title" />
-
+        android:textSize="@dimen/font_size_title"
+        android:background="@color/colorSecondary"/>
 </RelativeLayout>

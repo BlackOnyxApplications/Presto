@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,9 +28,12 @@ import com.bhuvan_kumar.Presto.database.AccessDatabase;
 import com.bhuvan_kumar.Presto.object.NetworkDevice;
 import com.bhuvan_kumar.Presto.object.TransferGroup;
 import com.bhuvan_kumar.Presto.service.WorkerService;
+import com.bhuvan_kumar.Presto.ui.callback.SharingActionModeCallback;
 import com.genonbeta.android.framework.ui.callback.SnackbarSupport;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
 
 public class AddDevicesToTransferActivity extends Activity
         implements SnackbarSupport, WorkerService.OnAttachListener
@@ -48,6 +52,7 @@ public class AddDevicesToTransferActivity extends Activity
     private ViewGroup mLayoutStatusContainer;
     private TextView mProgressTextLeft;
     private TextView mProgressTextRight;
+    private boolean isShareViaBrowser = false;
     private IntentFilter mFilter = new IntentFilter(AccessDatabase.ACTION_DATABASE_CHANGE);
     private BroadcastReceiver mReceiver = new BroadcastReceiver()
     {
@@ -73,7 +78,8 @@ public class AddDevicesToTransferActivity extends Activity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        isShareViaBrowser = SharingActionModeCallback.IS_SHARE_VIA_BROWSER;
+        Log.e(TAG, "isShareViaBrowser: " + isShareViaBrowser);
         setContentView(R.layout.activity_add_devices_to_transfer);
 
         if (!checkGroupIntegrity())
@@ -85,7 +91,9 @@ public class AddDevicesToTransferActivity extends Activity
         Bundle assigneeFragmentArgs = new Bundle();
         assigneeFragmentArgs.putLong(TransferAssigneeListFragment.ARG_GROUP_ID, mGroup.groupId);
         assigneeFragmentArgs.putBoolean(TransferAssigneeListFragment.ARG_USE_HORIZONTAL_VIEW, false);
-
+        if(isShareViaBrowser){
+            assigneeFragmentArgs.putBoolean(TransferAssigneeListFragment.ARG_SHARE_BROWSER_DIRECTLY, true);
+        }
         mProgressBar = findViewById(R.id.progressBar);
         mProgressTextLeft = findViewById(R.id.text1);
         mProgressTextRight = findViewById(R.id.text2);
@@ -101,7 +109,6 @@ public class AddDevicesToTransferActivity extends Activity
                     .instantiate(this, TransferAssigneeListFragment.class.getName(), assigneeFragmentArgs);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
             transaction.add(R.id.assigneeListFragment, assigneeListFragment);
             transaction.commit();
         }
@@ -273,6 +280,11 @@ public class AddDevicesToTransferActivity extends Activity
                 startConnectionManagerActivity();
             }
         });
+        if (isShareViaBrowser){
+
+        }else{
+            startConnectionManagerActivity();
+        }
     }
 
     private void startConnectionManagerActivity()

@@ -36,6 +36,7 @@ public class TransferAssigneeListFragment
 {
     public static final String ARG_GROUP_ID = "groupId";
     public static final String ARG_USE_HORIZONTAL_VIEW = "useHorizontalView";
+    public static final String ARG_SHARE_BROWSER_DIRECTLY = "shareBrowserDirectly";
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver()
     {
@@ -95,6 +96,12 @@ public class TransferAssigneeListFragment
                     AppUtils.startWebShareActivity(getActivity(), true);
             }
         });
+        if (getArguments() != null && getArguments().containsKey(ARG_SHARE_BROWSER_DIRECTLY) && getArguments().getBoolean(ARG_SHARE_BROWSER_DIRECTLY)){
+            mHeldGroup.isServedOnWeb = !mHeldGroup.isServedOnWeb;
+            AppUtils.getDatabase(getContext()).update(mHeldGroup);
+            if (mHeldGroup.isServedOnWeb)
+                AppUtils.startWebShareActivity(getActivity(), true);
+        }
 
         getEmptyActionButton().setOnLongClickListener(new View.OnLongClickListener()
         {

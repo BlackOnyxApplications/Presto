@@ -25,6 +25,7 @@ import java.util.List;
  */
 public class SharingActionModeCallback<T extends Shareable> extends EditableListFragment.SelectionCallback<T>
 {
+    public static boolean IS_SHARE_VIA_BROWSER = false;
     public SharingActionModeCallback(EditableListFragmentImpl<T> fragment)
     {
         super(fragment);
@@ -54,8 +55,8 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
 
         if (selectedItemList.size() > 0){
                 if (id == R.id.action_mode_share_trebleshot || id == R.id.action_mode_share_all_apps) {
+                    IS_SHARE_VIA_BROWSER = false;
                     Intent shareIntent = new Intent()
-                            .putExtra("IS_DIRECT", true)
                             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                             .setAction((item.getItemId() == R.id.action_mode_share_all_apps)
                                     ? (selectedItemList.size() > 1 ? Intent.ACTION_SEND_MULTIPLE : Intent.ACTION_SEND)
@@ -96,9 +97,47 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
                         return false;
                     }
                 }
-//                else if (id == R.id.action_mode_share_browser){
-//                    TODO: Code all messed up!!
-//                }
+                else if (id == R.id.action_mode_share_browser){
+                    IS_SHARE_VIA_BROWSER = true;
+                    Intent shareIntent = new Intent()
+                            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            .setAction((item.getItemId() == R.id.action_mode_share_all_apps)
+                                    ? (selectedItemList.size() > 1 ? Intent.ACTION_SEND_MULTIPLE : Intent.ACTION_SEND)
+                                    : (selectedItemList.size() > 1 ? ShareActivity.ACTION_SEND_MULTIPLE : ShareActivity.ACTION_SEND));
+
+                    if (selectedItemList.size() > 1) {
+                        ShareableListFragment.MIMEGrouper mimeGrouper = new ShareableListFragment.MIMEGrouper();
+                        ArrayList<Uri> uriList = new ArrayList<>();
+                        ArrayList<CharSequence> nameList = new ArrayList<>();
+
+                        for (T sharedItem : selectedItemList) {
+                            uriList.add(sharedItem.uri);
+                            nameList.add(sharedItem.fileName);
+
+                            if (!mimeGrouper.isLocked())
+                                mimeGrouper.process(sharedItem.mimeType);
+                        }
+
+                        shareIntent.setType(mimeGrouper.toString())
+                                .putParcelableArrayListExtra(Intent.EXTRA_STREAM, uriList)
+                                .putCharSequenceArrayListExtra(ShareActivity.EXTRA_FILENAME_LIST, nameList);
+                    } else if (selectedItemList.size() == 1) {
+                        T sharedItem = selectedItemList.get(0);
+
+                        shareIntent.setType(sharedItem.mimeType)
+                                .putExtra(Intent.EXTRA_STREAM, sharedItem.uri)
+                                .putExtra(ShareActivity.EXTRA_FILENAME_LIST, sharedItem.fileName);
+                    }
+
+                    try {
+                        getFragment().getContext().startActivity(shareIntent);
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                        Toast.makeText(getFragment().getActivity(), R.string.mesg_somethingWentWrong, Toast.LENGTH_SHORT).show();
+
+                        return false;
+                    }
+                }
                 else return super.onActionMenuItemSelected(context, actionMode, item);
         } else
             return super.onActionMenuItemSelected(context, actionMode, item);

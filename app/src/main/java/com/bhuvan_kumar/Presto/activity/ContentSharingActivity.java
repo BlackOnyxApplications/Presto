@@ -23,11 +23,6 @@ import com.bhuvan_kumar.Presto.adapter.SmartFragmentPagerAdapter;
 import com.genonbeta.android.framework.widget.PowerfulActionMode;
 import com.google.android.material.tabs.TabLayout;
 
-/**
- * created by: Bk
- * date: 13/04/18 19:45
- * p.s.: if anyone could do all this without making them generified I would be much surprised.
- */
 public class ContentSharingActivity extends Activity
 {
     public static final String TAG = ContentSharingActivity.class.getSimpleName();

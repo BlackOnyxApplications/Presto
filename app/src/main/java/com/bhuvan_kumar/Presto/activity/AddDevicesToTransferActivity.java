@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,7 +48,7 @@ public class AddDevicesToTransferActivity extends Activity
 
     private TransferGroup mGroup = null;
     private AddDeviceRunningTask mTask;
-    private FloatingActionButton mActionButton;
+    private Button mActionButton;
     private ProgressBar mProgressBar;
     private ViewGroup mLayoutStatusContainer;
     private TextView mProgressTextLeft;
@@ -79,7 +80,6 @@ public class AddDevicesToTransferActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         isShareViaBrowser = SharingActionModeCallback.IS_SHARE_VIA_BROWSER;
-        Log.e(TAG, "isShareViaBrowser: " + isShareViaBrowser);
         setContentView(R.layout.activity_add_devices_to_transfer);
 
         if (!checkGroupIntegrity())
@@ -270,7 +270,7 @@ public class AddDevicesToTransferActivity extends Activity
         mProgressBar.setProgress(0);
 
         //mTextMain.setText(R.string.text_addDevicesToTransfer);
-        mActionButton.setImageResource(R.drawable.ic_add_white_24dp);
+//        mActionButton.setImageResource(R.drawable.ic_add_white_24dp);
         mLayoutStatusContainer.setVisibility(View.GONE);
         mActionButton.setOnClickListener(new View.OnClickListener()
         {
@@ -280,9 +280,7 @@ public class AddDevicesToTransferActivity extends Activity
                 startConnectionManagerActivity();
             }
         });
-        if (isShareViaBrowser){
-
-        }else{
+        if (!isShareViaBrowser){
             startConnectionManagerActivity();
         }
     }
@@ -296,7 +294,7 @@ public class AddDevicesToTransferActivity extends Activity
     public void takeOnProcessMode()
     {
         mLayoutStatusContainer.setVisibility(View.VISIBLE);
-        mActionButton.setImageResource(R.drawable.ic_close_white_24dp);
+//        mActionButton.setImageResource(R.drawable.ic_close_white_24dp);
         mActionButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

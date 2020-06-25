@@ -2,13 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <PreferenceCategory android:title="@string/text_application">
-        <EditTextPreference
-            android:dialogTitle="@string/text_deviceNameTitle"
-            android:inputType="text"
-            android:key="device_name"
-            android:maxLength="32"
-            android:summary="@string/text_deviceNameSummary"
-            android:title="@string/text_deviceName" />
+<!--        <EditTextPreference-->
+<!--            android:dialogTitle="@string/text_deviceNameTitle"-->
+<!--            android:inputType="text"-->
+<!--            android:key="device_name"-->
+<!--            android:maxLength="32"-->
+<!--            android:summary="@string/text_deviceNameSummary"-->
+<!--            android:title="@string/text_deviceName" />-->
 
         <CheckBoxPreference
             android:defaultValue="false"

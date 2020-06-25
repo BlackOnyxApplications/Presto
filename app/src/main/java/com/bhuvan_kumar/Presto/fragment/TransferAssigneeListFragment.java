@@ -96,12 +96,6 @@ public class TransferAssigneeListFragment
                     AppUtils.startWebShareActivity(getActivity(), true);
             }
         });
-        if (getArguments() != null && getArguments().containsKey(ARG_SHARE_BROWSER_DIRECTLY) && getArguments().getBoolean(ARG_SHARE_BROWSER_DIRECTLY)){
-            mHeldGroup.isServedOnWeb = !mHeldGroup.isServedOnWeb;
-            AppUtils.getDatabase(getContext()).update(mHeldGroup);
-            if (mHeldGroup.isServedOnWeb)
-                AppUtils.startWebShareActivity(getActivity(), true);
-        }
 
         getEmptyActionButton().setOnLongClickListener(new View.OnLongClickListener()
         {
@@ -121,6 +115,13 @@ public class TransferAssigneeListFragment
         getListView().setPadding(paddingRecyclerView, paddingRecyclerView, paddingRecyclerView,
                 paddingRecyclerView);
         getListView().setClipToPadding(false);
+
+        if (getArguments() != null && getArguments().containsKey(ARG_SHARE_BROWSER_DIRECTLY) && getArguments().getBoolean(ARG_SHARE_BROWSER_DIRECTLY)){
+            mHeldGroup.isServedOnWeb = !mHeldGroup.isServedOnWeb;
+            AppUtils.getDatabase(getContext()).update(mHeldGroup);
+            if (mHeldGroup.isServedOnWeb)
+                AppUtils.startWebShareActivity(getActivity(), true);
+        }
     }
 
     @Override

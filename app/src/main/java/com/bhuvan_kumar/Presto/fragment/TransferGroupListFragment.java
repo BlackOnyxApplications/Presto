@@ -178,7 +178,7 @@ public class TransferGroupListFragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        setEmptyImage(R.drawable.ic_compare_arrows_white_24dp);
+        setEmptyImage(R.drawable.ic_share_white_24dp);
         setEmptyText(getString(R.string.text_listEmptyTransfer));
     }
 
@@ -267,8 +267,8 @@ public class TransferGroupListFragment
             ViewTransferActivity.startInstance(getActivity(), getAdapter().getItem(holder).groupId);
             return true;
         } catch (Exception e) {
+            return false;
         }
-        return false;
     }
 
     @Override

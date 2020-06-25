@@ -54,7 +54,7 @@
     <string name="butn_clearQueue">Clear the queue</string>
     <string name="butn_shareWithTrebleshot">Share with Presto</string>
     <string name="mesg_somethingWentWrong">Something went wrong</string>
-    <string name="text_findDevicesHint">No familiar devices</string>
+    <string name="text_findDevicesHint">No familiar devices. \nOne should either SCAN and other SHOW for the scan device to work!</string>
     <string name="text_autoScanDevices">Scan devices automatically</string>
     <string name="text_autoScanDevicesSummary">Scans devices when necessary</string>
     <string name="mesg_stillScanning">Still scanning</string>
@@ -570,27 +570,8 @@
     <string name="prompt_string">Please add file access permissions</string>
     <string name="settings_string">Settings</string>
     <string name="title_activity_prompt">PromptActivity</string>
-
-    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>
-    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>
-
-    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>
-    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>
-
-
-    <!--    Admob ids-->
-    <!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-    <!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-
-    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>
-    <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
-    <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
-    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
-    <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
-    <string name="share_screen">Share screen</string>
+    <!--    <string name="share_screen">Share screen</string>-->
+    <string name="no_data_collected">No worries! Zero data collected</string>
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
@@ -626,5 +607,24 @@
         <item>.exo</item>
         <item>thumbs?.db</item>
     </string-array>
+
+    <!--    Admob test ids-->
+<!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+<!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+
+    <!-- Admob ids-->
+    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>
+    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>
+    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>
+    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>
+    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>
+
+    <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
+    <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
+    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
+    <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
 
 </resources>

@@ -54,8 +54,8 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
         List<T> selectedItemList = new ArrayList<>(getFragment().getSelectionConnection().getSelectedItemList());
 
         if (selectedItemList.size() > 0){
-                if (id == R.id.action_mode_share_trebleshot || id == R.id.action_mode_share_all_apps) {
-                    IS_SHARE_VIA_BROWSER = false;
+                if (id == R.id.action_mode_share_trebleshot || id == R.id.action_mode_share_all_apps || id == R.id.action_mode_share_browser) {
+                    IS_SHARE_VIA_BROWSER = id == R.id.action_mode_share_browser;
                     Intent shareIntent = new Intent()
                             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                             .setAction((item.getItemId() == R.id.action_mode_share_all_apps)
@@ -90,47 +90,6 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
                         getFragment().getContext().startActivity(item.getItemId() == R.id.action_mode_share_all_apps
                                 ? Intent.createChooser(shareIntent, getFragment().getContext().getString(R.string.text_fileShareAppChoose))
                                 : shareIntent);
-                    } catch (Throwable e) {
-                        e.printStackTrace();
-                        Toast.makeText(getFragment().getActivity(), R.string.mesg_somethingWentWrong, Toast.LENGTH_SHORT).show();
-
-                        return false;
-                    }
-                }
-                else if (id == R.id.action_mode_share_browser){
-                    IS_SHARE_VIA_BROWSER = true;
-                    Intent shareIntent = new Intent()
-                            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                            .setAction((item.getItemId() == R.id.action_mode_share_all_apps)
-                                    ? (selectedItemList.size() > 1 ? Intent.ACTION_SEND_MULTIPLE : Intent.ACTION_SEND)
-                                    : (selectedItemList.size() > 1 ? ShareActivity.ACTION_SEND_MULTIPLE : ShareActivity.ACTION_SEND));
-
-                    if (selectedItemList.size() > 1) {
-                        ShareableListFragment.MIMEGrouper mimeGrouper = new ShareableListFragment.MIMEGrouper();
-                        ArrayList<Uri> uriList = new ArrayList<>();
-                        ArrayList<CharSequence> nameList = new ArrayList<>();
-
-                        for (T sharedItem : selectedItemList) {
-                            uriList.add(sharedItem.uri);
-                            nameList.add(sharedItem.fileName);
-
-                            if (!mimeGrouper.isLocked())
-                                mimeGrouper.process(sharedItem.mimeType);
-                        }
-
-                        shareIntent.setType(mimeGrouper.toString())
-                                .putParcelableArrayListExtra(Intent.EXTRA_STREAM, uriList)
-                                .putCharSequenceArrayListExtra(ShareActivity.EXTRA_FILENAME_LIST, nameList);
-                    } else if (selectedItemList.size() == 1) {
-                        T sharedItem = selectedItemList.get(0);
-
-                        shareIntent.setType(sharedItem.mimeType)
-                                .putExtra(Intent.EXTRA_STREAM, sharedItem.uri)
-                                .putExtra(ShareActivity.EXTRA_FILENAME_LIST, sharedItem.fileName);
-                    }
-
-                    try {
-                        getFragment().getContext().startActivity(shareIntent);
                     } catch (Throwable e) {
                         e.printStackTrace();
                         Toast.makeText(getFragment().getActivity(), R.string.mesg_somethingWentWrong, Toast.LENGTH_SHORT).show();

@@ -342,12 +342,12 @@ public class AppUtils
                     R.string.text_requestPermissionStorageSummary));
         }
 
-        if (Build.VERSION.SDK_INT >= 26) {
-            permissionRequests.add(new RationalePermissionRequest.PermissionRequest(context,
-                    Manifest.permission.READ_PHONE_STATE,
-                    R.string.text_requestPermissionReadPhoneState,
-                    R.string.text_requestPermissionReadPhoneStateSummary));
-        }
+//        if (Build.VERSION.SDK_INT >= 26) {
+//            permissionRequests.add(new RationalePermissionRequest.PermissionRequest(context,
+//                    Manifest.permission.READ_PHONE_STATE,
+//                    R.string.text_requestPermissionReadPhoneState,
+//                    R.string.text_requestPermissionReadPhoneStateSummary));
+//        }
 
         return permissionRequests;
     }

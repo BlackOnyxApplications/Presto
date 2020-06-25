@@ -48,13 +48,15 @@
             android:id="@+id/permission_text"
             android:gravity="center"/>
 
-<!--        <TextView-->
-<!--            style="@style/TextAppearance.Primary.Big"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/permission_text"-->
-<!--            android:text="Zero data is collected by Presto"-->
-<!--            android:textSize="@dimen/font_size_primary"-->
-<!--            android:gravity="center"/>-->
+        <TextView
+            style="@style/TextAppearance.Primary.Big"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/permission_text"
+            android:text="@string/no_data_collected"
+            android:textSize="@dimen/font_size_big"
+            android:gravity="center"
+            android:id="@+id/t1"
+            android:layout_marginTop="10dp"/>
     </RelativeLayout>
 </RelativeLayout>

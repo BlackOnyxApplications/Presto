@@ -381,7 +381,7 @@
     <string name="butn_allow">Allow</string>
     <string name="butn_telegram_channel">Telegram channel</string>
     <string name="mode_middleDot" translatable="false"> · </string>
-    <string name="text_listEmptyTransfer">All transfers appear here</string>
+    <string name="text_listEmptyTransfer">No history found</string>
     <string name="text_transfers">Transfers</string>
     <string name="butn_connectionDetails">Connections details</string>
     <string name="butn_useKnownDevice">Use known devices</string>
@@ -465,7 +465,7 @@
     <string name="mode_webShareAddress">http://%s:%d/</string>
     <string name="text_or">or</string>
     <string name="text_visitWebShareAddress">Visit this link with your browser</string>
-    <string name="text_webShareInfo">Enable web-sharing for transfers individually and visit any web-link shown below with a device that is connected to the same network. Do not forget to press PLAY button.</string>
+    <string name="text_webShareInfo">Connect this device via WiFi with other device manually to show the link. Once the link is visible enter the link in other device\'s browser to connect. Do not forget to press PLAY button.</string>
     <string name="text_dowloadTrebleshotAndroid">Download Presto for Android</string>
     <string name="text_listEmptyConnection">Networks you connect appear here</string>
     <string name="mesg_errorNotAnIpAddress">Not an IP Address
@@ -609,18 +609,18 @@
     </string-array>
 
     <!--    Admob test ids-->
-<!--    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
-<!--    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>-->
+    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
 
     <!-- Admob ids-->
-    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>
-    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>
-    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>
-    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>
-    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>
+<!--    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>-->
+<!--    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>-->
+<!--    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>-->
+<!--    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>-->
+<!--    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>-->
 
     <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
     <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>

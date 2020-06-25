@@ -39,8 +39,8 @@ android {
         applicationId "com.bhuvan_kumar.Presto"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 15
-        versionName "0.8.8"
+        versionCode 16
+        versionName "0.8.9"
         multiDexEnabled true
 
         vectorDrawables {

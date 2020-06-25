@@ -81,7 +81,7 @@ public class ApplicationListAdapter
             TextView text2 = parentView.findViewById(R.id.text2);
 
             text1.setText(object.friendlyName);
-            text2.setText(object.version);
+            text2.setText(object.appSize);
 
             parentView.setSelected(object.isSelectableSelected());
 
@@ -101,6 +101,7 @@ public class ApplicationListAdapter
 
         public ApplicationInfo appInfo;
         public String version;
+        public String appSize;
         public String packageName;
 
         public PackageHolder(String friendlyName, ApplicationInfo appInfo, String version, String packageName, File executableFile)
@@ -114,6 +115,7 @@ public class ApplicationListAdapter
                     Uri.fromFile(executableFile));
 
             this.appInfo = appInfo;
+            this.appSize = FileUtils.sizeExpression(executableFile.length(), false);
             this.version = version;
             this.packageName = packageName;
         }

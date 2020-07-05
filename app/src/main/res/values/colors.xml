@@ -9,6 +9,7 @@
 
     <color name="colorControlNormal">#222</color>
     <color name="colorError">#afb42b</color>
+    <color name="colorErrorRed">#FF0000</color>
     <color name="colorOnPrimary">@color/colorControlNormal</color>
     <color name="colorOnSecondary">@color/colorControlNormal</color>
     <color name="colorPrimary">#ffffff</color>
@@ -31,6 +32,7 @@
     <!-- SEPERATOR -->
 
     <color name="save_green">#98ff98</color>
+    <color name="success_green">#28a745</color>
     <color name="dark_colorControlNormal">#ffffff</color>
     <color name="dark_colorError">#ffeb3b</color>
     <color name="dark_colorOnPrimary">@color/dark_colorControlNormal</color>

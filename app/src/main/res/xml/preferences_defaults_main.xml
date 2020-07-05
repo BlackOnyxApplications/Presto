@@ -6,7 +6,7 @@
         android:key="scan_devices_auto"/>
 
     <CheckBoxPreference
-        android:defaultValue="false"
+        android:defaultValue="true"
         android:key="trust_always"/>
 
     <CheckBoxPreference

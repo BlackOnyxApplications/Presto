@@ -43,4 +43,16 @@ public class PreferenceUtils extends com.genonbeta.android.framework.util.Prefer
         SharedPreferences sh = context.getSharedPreferences("SharedPref", MODE_PRIVATE);
         return sh.getBoolean("isGameMuted", false);
     }
+
+    public static void SetShowShareDialog(Context context, boolean share){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("SharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putBoolean("shouldShare", share);
+        myEdit.apply();
+    }
+
+    public static boolean shouldShowShareDialog(Context context){
+        SharedPreferences sh = context.getSharedPreferences("SharedPref", MODE_PRIVATE);
+        return sh.getBoolean("shouldShare", true);
+    }
 }

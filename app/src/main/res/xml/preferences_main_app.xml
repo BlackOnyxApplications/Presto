@@ -31,13 +31,13 @@
             tools:targetApi="16" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="trust_always"
             android:summary="@string/text_trustZoneEnabledSummary"
             android:title="@string/text_trustZoneEnabled" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="hotspot_trust"
             android:summary="@string/text_hotspotStartsTrustZoneSummary"
             android:title="@string/text_hotspotStartsTrustZone" />

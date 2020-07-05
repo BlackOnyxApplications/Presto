@@ -1,9 +1,17 @@
 package com.bhuvan_kumar.Presto.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -20,8 +28,27 @@ import com.bhuvan_kumar.Presto.fragment.VideoListFragment;
 import com.bhuvan_kumar.Presto.ui.callback.SharingActionModeCallback;
 import com.bhuvan_kumar.Presto.R;
 import com.bhuvan_kumar.Presto.adapter.SmartFragmentPagerAdapter;
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdIconView;
+import com.facebook.ads.AudienceNetworkAds;
+import com.facebook.ads.NativeAd;
+import com.facebook.ads.NativeAdBase;
+import com.facebook.ads.NativeAdLayout;
+import com.facebook.ads.NativeAdListener;
 import com.genonbeta.android.framework.widget.PowerfulActionMode;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.formats.UnifiedNativeAdView;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContentSharingActivity extends Activity
 {
@@ -30,6 +57,7 @@ public class ContentSharingActivity extends Activity
     private PowerfulActionMode mMode;
     private SharingActionModeCallback mSelectionCallback;
     private Activity.OnBackPressedListener mBackPressedListener;
+    private UnifiedNativeAd nativeAd;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -118,6 +146,127 @@ public class ContentSharingActivity extends Activity
 
             }
         });
+
+//        initializeAds();
+    }
+
+    private void initializeAds(){
+            AudienceNetworkAds.initialize(this);
+            MobileAds.initialize(this, new OnInitializationCompleteListener() {
+                @Override
+                public void onInitializationComplete(InitializationStatus initializationStatus) {
+                }
+            });
+
+            try {
+                loadGoogleAd();
+            } catch (Exception ex) {
+                Log.e(TAG, "initializeAds: " + ex.toString());
+            }
+    }
+
+    private void loadGoogleAd() {
+            try{
+                AdLoader.Builder builder = new AdLoader.Builder(this, getString(R.string.transfer_ad_unit_id));
+                builder.forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        if (nativeAd != null) {
+                            nativeAd.destroy();
+                        }
+                        nativeAd = unifiedNativeAd;
+                        FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
+                        try {
+                            UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater()
+                                    .inflate(R.layout.home_page_custom_ad, null);
+
+                            adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+                            adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+
+                            ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
+
+                            if (nativeAd.getIcon() == null) {
+                                adView.getIconView().setVisibility(View.GONE);
+                            } else {
+                                ((ImageView) adView.getIconView()).setImageDrawable(
+                                        nativeAd.getIcon().getDrawable());
+                                adView.getIconView().setVisibility(View.VISIBLE);
+                            }
+
+                            adView.setNativeAd(nativeAd);
+
+                            frameLayout.removeAllViews();
+                            frameLayout.addView(adView);
+                        } catch (Exception e) {
+                            Log.e(TAG, e.toString());
+                        }
+                    }
+                });
+
+                AdLoader adLoader = builder.withAdListener(new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        loadFacebookAd();
+                        Log.e(TAG, "Google Ads errorCode: " + errorCode);
+                    }
+                }).build();
+
+                adLoader.loadAd(new AdRequest.Builder().build());
+            } catch (Exception e){
+                Log.e(TAG, e.toString());
+            }
+    }
+
+    private void loadFacebookAd() {
+            NativeAd nativeAd = new NativeAd(this, getString(R.string.fb_transfer_history_ad_unit));
+            nativeAd.setAdListener(new NativeAdListener() {
+                @Override
+                public void onMediaDownloaded(Ad ad) {
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+                    Log.e(TAG, "FB Ad error code: "+ adError.getErrorCode() + ", FB Ad error message: " + adError.getErrorMessage());
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    if (nativeAd == null || nativeAd != ad) {
+                        return;
+                    }
+                    nativeAd.unregisterView();
+                    NativeAdLayout nativeAdLayout = findViewById(R.id.fb_native_ad_container);
+                    LayoutInflater inflater = LayoutInflater.from(ContentSharingActivity.this);
+                    LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.facebook_native_ad_view, nativeAdLayout, false);
+                    AdIconView nativeAdIcon = adView.findViewById(R.id.fb_native_ad_icon);
+                    TextView nativeAdTitle = adView.findViewById(R.id.fb_ad_headline);
+
+                    nativeAdTitle.setText(nativeAd.getAdvertiserName());
+
+                    List<View> clickableViews = new ArrayList<>();
+                    clickableViews.add(nativeAdLayout);
+                    clickableViews.add(nativeAdTitle);
+                    clickableViews.add(nativeAdIcon);
+
+                    nativeAd.registerViewForInteraction(
+                            adView,
+                            nativeAdIcon,
+                            clickableViews);
+
+                    nativeAdLayout.addView(adView);
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            });
+
+            nativeAd.loadAd(NativeAdBase.MediaCacheFlag.ALL);
     }
 
     @Override

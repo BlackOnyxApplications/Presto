@@ -74,9 +74,10 @@ public class TransferListAdapter
         super(context, MODE_GROUP_BY_DEFAULT);
 
         mPercentFormat = NumberFormat.getPercentInstance();
-        mColorPending = ContextCompat.getColor(context, AppUtils.getReference(context, R.attr.colorControlNormal));
-        mColorDone = ContextCompat.getColor(context, AppUtils.getReference(context, R.attr.colorAccent));
-        mColorError = ContextCompat.getColor(context, AppUtils.getReference(context, R.attr.colorError));
+
+        mColorDone = ContextCompat.getColor(context, R.color.success_green);
+        mColorError = ContextCompat.getColor(context, R.color.colorErrorRed);
+        mColorPending = ContextCompat.getColor(context, R.color.colorError);
 
         setSelect(new SQLQuery.Select(AccessDatabase.TABLE_TRANSFER));
     }

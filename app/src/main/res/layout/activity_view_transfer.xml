@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:fitsSystemWindows="false">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -34,7 +36,22 @@
             android:visibility="gone" />
 
     </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ad_layout">
+        <FrameLayout
+            android:id="@+id/fl_adplaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
 
+        <com.facebook.ads.NativeAdLayout
+            android:id="@+id/fb_native_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+    </RelativeLayout>
     <FrameLayout
         android:id="@+id/activity_transaction_content_frame"
         android:layout_width="match_parent"
@@ -43,4 +60,4 @@
         tools:context="com.bhuvan_kumar.Presto.activity.ViewTransferActivity"
         tools:showIn="@layout/activity_view_transfer" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

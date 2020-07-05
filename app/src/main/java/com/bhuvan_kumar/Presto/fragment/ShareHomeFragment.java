@@ -194,8 +194,7 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
 
             try {
                 if(isAdded()) {
-                    refreshAd(view);
-                    loadNativeAd(view);
+                    loadFacebookAd(view);
                 }
             } catch (Exception ex) {
                 Log.e(getTag(), "initializeAds: " + ex.toString());
@@ -203,32 +202,10 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
         }
     }
 
-    private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
-
-        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
-        adView.setIconView(adView.findViewById(R.id.ad_app_icon));
-
-        ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
-
-        if (nativeAd.getIcon() == null) {
-            adView.getIconView().setVisibility(View.GONE);
-        } else {
-            ((ImageView) adView.getIconView()).setImageDrawable(
-                    nativeAd.getIcon().getDrawable());
-            adView.getIconView().setVisibility(View.VISIBLE);
-        }
-
-        adView.setNativeAd(nativeAd);
-
-    }
-
-    private void refreshAd(View view) {
+    private void loadGoogleAd(View view) {
         Context context = getActivity();
         if(context!=null) {
             try{
-                List<Fragment> fragments = getFragmentManager() != null ? getFragmentManager().getFragments() : new ArrayList<Fragment>();
-                if(fragments.size() > 1) {
-
                     AdLoader.Builder builder = new AdLoader.Builder(context, getString(R.string.home_ad_unit_id));
                     builder.forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                         @Override
@@ -241,7 +218,22 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
                             try {
                                 UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater()
                                         .inflate(R.layout.home_page_custom_ad, null);
-                                populateUnifiedNativeAdView(unifiedNativeAd, adView);
+
+                                adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+                                adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+
+                                ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
+
+                                if (nativeAd.getIcon() == null) {
+                                    adView.getIconView().setVisibility(View.GONE);
+                                } else {
+                                    ((ImageView) adView.getIconView()).setImageDrawable(
+                                            nativeAd.getIcon().getDrawable());
+                                    adView.getIconView().setVisibility(View.VISIBLE);
+                                }
+
+                                adView.setNativeAd(nativeAd);
+
                                 frameLayout.removeAllViews();
                                 frameLayout.addView(adView);
                             } catch (Exception e) {
@@ -258,7 +250,6 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
                     }).build();
 
                     adLoader.loadAd(new AdRequest.Builder().build());
-                }
         } catch (Exception e){
             Log.e(getTag(), e.toString());
         }
@@ -267,9 +258,10 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
 
 
 //    Facebook ads
-private void loadNativeAd(View view) {
-        if(getActivity() != null) {
-            NativeAd nativeAd = new NativeAd(getActivity(), getString(R.string.fb_home_ad_unit));
+private void loadFacebookAd(View view) {
+        Context context = getActivity();
+        if(context != null) {
+            NativeAd nativeAd = new NativeAd(context, getString(R.string.fb_home_ad_unit));
             nativeAd.setAdListener(new NativeAdListener() {
                 @Override
                 public void onMediaDownloaded(Ad ad) {
@@ -277,6 +269,7 @@ private void loadNativeAd(View view) {
 
                 @Override
                 public void onError(Ad ad, AdError adError) {
+                    loadGoogleAd(view);
                     Log.e(getTag(), "FB Ad error code: "+ adError.getErrorCode() + ", FB Ad error message: " + adError.getErrorMessage());
                 }
 
@@ -285,7 +278,26 @@ private void loadNativeAd(View view) {
                     if (nativeAd == null || nativeAd != ad) {
                         return;
                     }
-                    inflateAd(nativeAd, view);
+                    nativeAd.unregisterView();
+                    NativeAdLayout nativeAdLayout = view.findViewById(R.id.fb_native_ad_container);
+                    LayoutInflater inflater = LayoutInflater.from(context);
+                    LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.facebook_native_ad_view, nativeAdLayout, false);
+                    AdIconView nativeAdIcon = adView.findViewById(R.id.fb_native_ad_icon);
+                    TextView nativeAdTitle = adView.findViewById(R.id.fb_ad_headline);
+
+                    nativeAdTitle.setText(nativeAd.getAdvertiserName());
+
+                    List<View> clickableViews = new ArrayList<>();
+                    clickableViews.add(nativeAdLayout);
+                    clickableViews.add(nativeAdTitle);
+                    clickableViews.add(nativeAdIcon);
+
+                    nativeAd.registerViewForInteraction(
+                            adView,
+                            nativeAdIcon,
+                            clickableViews);
+
+                    nativeAdLayout.addView(adView);
                 }
 
                 @Override
@@ -301,32 +313,6 @@ private void loadNativeAd(View view) {
             nativeAd.loadAd(NativeAdBase.MediaCacheFlag.ALL);
         }
 }
-
-private void inflateAd(NativeAd nativeAd, View view) {
-        Context context = getActivity();
-        if(context != null) {
-            nativeAd.unregisterView();
-            NativeAdLayout nativeAdLayout = view.findViewById(R.id.fb_native_ad_container);
-            LayoutInflater inflater = LayoutInflater.from(context);
-            LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.facebook_native_ad_view, nativeAdLayout, false);
-            AdIconView nativeAdIcon = adView.findViewById(R.id.fb_native_ad_icon);
-            TextView nativeAdTitle = adView.findViewById(R.id.fb_ad_headline);
-
-            nativeAdTitle.setText(nativeAd.getAdvertiserName());
-
-            List<View> clickableViews = new ArrayList<>();
-            clickableViews.add(nativeAdLayout);
-            clickableViews.add(nativeAdTitle);
-            clickableViews.add(nativeAdIcon);
-
-            nativeAd.registerViewForInteraction(
-                    adView,
-                    nativeAdIcon,
-                    clickableViews);
-
-            nativeAdLayout.addView(adView);
-        }
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)

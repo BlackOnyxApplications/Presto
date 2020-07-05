@@ -34,14 +34,14 @@
             tools:targetApi="16" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:icon="@drawable/ic_vpn_key_white_24dp"
             android:key="trust_always"
             android:summary="@string/text_trustZoneEnabledSummary"
             android:title="@string/text_trustZoneEnabled" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:icon="@drawable/ic_wifi_tethering_white_24dp"
             android:key="hotspot_trust"
             android:summary="@string/text_hotspotStartsTrustZoneSummary"

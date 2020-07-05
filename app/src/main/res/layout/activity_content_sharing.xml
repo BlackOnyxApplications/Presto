@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,6 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ad_layout">
+            <FrameLayout
+                android:id="@+id/fl_adplaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.facebook.ads.NativeAdLayout
+                android:id="@+id/fb_native_ad_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/activity_content_sharing_tab_layout"
             android:layout_width="wrap_content"
@@ -25,10 +41,10 @@
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.bhuvan_kumar.Presto.activity.ContentSharingActivity"
         tools:showIn="@layout/activity_content_sharing">
@@ -54,4 +70,4 @@
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </RelativeLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

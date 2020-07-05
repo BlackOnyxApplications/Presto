@@ -174,7 +174,7 @@ public class CommunicationService extends Service
         if (getWifiLock() != null)
             getWifiLock().acquire();
 
-        updateServiceState(getDefaultPreferences().getBoolean("trust_always", false));
+        updateServiceState(getDefaultPreferences().getBoolean("trust_always", true));
 
         if (!AppUtils.checkRunningConditions(this)
                 || !mCommunicationServer.start()
@@ -192,7 +192,7 @@ public class CommunicationService extends Service
 
                     sendHotspotStatus(reservation.getWifiConfiguration());
 
-                    if (getDefaultPreferences().getBoolean("hotspot_trust", false))
+                    if (getDefaultPreferences().getBoolean("hotspot_trust", true))
                         updateServiceState(true);
                 }
             });

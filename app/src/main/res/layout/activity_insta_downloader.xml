@@ -42,6 +42,17 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@id/logo"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/help"
+                    android:src="@drawable/ic_help_circle_white_24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp" />
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -80,17 +91,29 @@
             android:visibility="visible"/>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ad_layout">
+        <FrameLayout
+            android:id="@+id/fl_adplaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <com.facebook.ads.NativeAdLayout
+            android:id="@+id/fb_native_ad_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+    </RelativeLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextAppearance.Primary.Big.SingleLine"
         android:text="History"
         android:layout_margin="8dp"/>
-
-    <FrameLayout
-        android:id="@+id/fl_adplaceholder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <include
         layout="@layout/status_content_main"/>

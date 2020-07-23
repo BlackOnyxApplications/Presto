@@ -19,7 +19,7 @@ abstract public class GalleryGroupEditableListFragment<T extends GroupEditableLi
     public void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setDefaultGroupingCriteria(ImageListAdapter.MODE_GROUP_BY_DATE);
+        setDefaultGroupingCriteria(ImageListAdapter.MODE_GROUP_BY_NOTHING);
     }
 
     @Override

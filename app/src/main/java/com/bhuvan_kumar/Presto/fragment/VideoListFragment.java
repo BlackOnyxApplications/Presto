@@ -25,8 +25,8 @@ public class VideoListFragment
 
         setFilteringSupported(true);
         setDefaultOrderingCriteria(VideoListAdapter.MODE_SORT_ORDER_DESCENDING);
-        setDefaultSortingCriteria(VideoListAdapter.MODE_SORT_BY_DATE);
-        setDefaultViewingGridSize(2, 4);
+        setDefaultSortingCriteria(VideoListAdapter.MODE_GROUP_BY_ALBUM);
+        setDefaultViewingGridSize(3, 4);
         setUseDefaultPaddingDecoration(false);
     }
 

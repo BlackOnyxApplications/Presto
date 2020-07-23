@@ -3,14 +3,16 @@
 
     <item
         android:id="@+id/action_mode_abs_editable_select_all"
-        android:title="@string/butn_selectAll"/>
+        android:title="@string/butn_selectAll"
+        android:icon="@drawable/ic_select_none"
+        android:showAsAction="always"/>
 
-    <item
-        android:id="@+id/action_mode_abs_editable_select_none"
-        android:title="@string/butn_selectNone"/>
+<!--    <item-->
+<!--        android:id="@+id/action_mode_abs_editable_select_none"-->
+<!--        android:title="@string/butn_selectNone"/>-->
 
-    <item
-        android:id="@+id/action_mode_abs_editable_preview_selections"
-        android:title="@string/butn_previewSelections"/>
+<!--    <item-->
+<!--        android:id="@+id/action_mode_abs_editable_preview_selections"-->
+<!--        android:title="@string/butn_previewSelections"/>-->
 
 </menu>

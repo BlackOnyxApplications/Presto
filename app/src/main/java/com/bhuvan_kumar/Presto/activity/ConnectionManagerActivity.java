@@ -606,6 +606,7 @@ public class ConnectionManagerActivity
                         if (mListener != null)
                             mListener.onNetworkDeviceSelected(device, connection);
                     } catch (Exception e) {
+                        Log.e(getTag(), "" + e.getMessage());
                         // do nothing
                     }
                 }

@@ -572,11 +572,43 @@
     <string name="title_activity_prompt">PromptActivity</string>
     <!--    <string name="share_screen">Share screen</string>-->
     <string name="no_data_collected">No worries! Zero data collected</string>
+
+
+    <!--    Admob test ids-->
+
+    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="receiving_page_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="settings_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
+
+
+<!--     Admob ids-->
+<!--    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>-->
+<!--    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>-->
+<!--    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>-->
+<!--    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>-->
+<!--    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>-->
+<!--    <string name="receiving_page_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>-->
+<!--    <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>-->
+
+
+    <!--    Facebook ads-->
+    <string name="fb_ingame_ad_unit">2296519250644594_2360028347627017</string>
+    <string name="fb_instagram_ad_unit">2296519250644594_2360032750959910</string>
+    <string name="fb_whatsapp_ad_unit">2296519250644594_2360032040959981</string>
+    <string name="fb_receiving_page_ad_unit">2296519250644594_2360033007626551</string>
+    <string name="fb_transfer_history_ad_unit">2296519250644594_2363326903963828</string>
+    <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
+    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
+    <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
+
     <string-array name="generic_filter_files">
         <item>.tmp</item>
         <item>.log</item>
     </string-array>
-
     <string-array name="generic_filter_folders">
         <item>Logs</item>
         <item>logs</item>
@@ -607,31 +639,4 @@
         <item>.exo</item>
         <item>thumbs?.db</item>
     </string-array>
-
-    <!--    Admob test ids-->
-    <string name="home_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="transfer_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="game_won_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="game_hint_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="game_head_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="receiving_page_ad_unit_id">ca-app-pub-3940256099942544/2247696110</string>
-
-    <!-- Admob ids-->
-<!--    <string name="home_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>-->
-<!--    <string name="transfer_ad_unit_id">ca-app-pub-6336656817224230/2336975143</string>-->
-<!--    <string name="game_won_ad_unit_id">ca-app-pub-6336656817224230/8804033347</string>-->
-<!--    <string name="game_hint_ad_unit_id">ca-app-pub-6336656817224230/1117115017</string>-->
-<!--    <string name="game_head_ad_unit_id">ca-app-pub-6336656817224230/4864788338</string>-->
-<!--    <string name="receiving_page_ad_unit_id">ca-app-pub-6336656817224230/4963138487</string>&ndash;&gt;-->
-
-<!--    Facebook ads-->
-    <string name="settings_ad_unit_id">ca-app-pub-6336656817224230/5056360028</string>
-    <string name="fb_home_ad_unit">2296519250644594_2298976820398837</string>
-    <string name="fb_clean_ad_unit">2296519250644594_2307747726188413</string>
-    <string name="fb_settings_ad_unit">2296519250644594_2299496410346878</string>
-    <string name="fb_ingame_ad_unit">2296519250644594_2360028347627017</string>
-    <string name="fb_instagram_ad_unit">2296519250644594_2360032750959910</string>
-    <string name="fb_whatsapp_ad_unit">2296519250644594_2360032040959981</string>
-    <string name="fb_receiving_page_ad_unit">2296519250644594_2360033007626551</string>
-    <string name="fb_transfer_history_ad_unit">2296519250644594_2363326903963828</string>
 </resources>

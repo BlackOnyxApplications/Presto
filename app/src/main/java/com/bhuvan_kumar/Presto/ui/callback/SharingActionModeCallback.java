@@ -54,13 +54,11 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
         List<T> selectedItemList = new ArrayList<>(getFragment().getSelectionConnection().getSelectedItemList());
 
         if (selectedItemList.size() > 0){
-                if (id == R.id.action_mode_share_trebleshot || id == R.id.action_mode_share_all_apps || id == R.id.action_mode_share_browser) {
+                if (id == R.id.action_mode_share_trebleshot || id == R.id.action_mode_share_browser) {
                     IS_SHARE_VIA_BROWSER = id == R.id.action_mode_share_browser;
                     Intent shareIntent = new Intent()
                             .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                            .setAction((item.getItemId() == R.id.action_mode_share_all_apps)
-                                    ? (selectedItemList.size() > 1 ? Intent.ACTION_SEND_MULTIPLE : Intent.ACTION_SEND)
-                                    : (selectedItemList.size() > 1 ? ShareActivity.ACTION_SEND_MULTIPLE : ShareActivity.ACTION_SEND));
+                            .setAction((selectedItemList.size() > 1 ? ShareActivity.ACTION_SEND_MULTIPLE : ShareActivity.ACTION_SEND));
 
                     if (selectedItemList.size() > 1) {
                         ShareableListFragment.MIMEGrouper mimeGrouper = new ShareableListFragment.MIMEGrouper();
@@ -87,9 +85,7 @@ public class SharingActionModeCallback<T extends Shareable> extends EditableList
                     }
 
                     try {
-                        getFragment().getContext().startActivity(item.getItemId() == R.id.action_mode_share_all_apps
-                                ? Intent.createChooser(shareIntent, getFragment().getContext().getString(R.string.text_fileShareAppChoose))
-                                : shareIntent);
+                        getFragment().getContext().startActivity(shareIntent);
                     } catch (Throwable e) {
                         e.printStackTrace();
                         Toast.makeText(getFragment().getActivity(), R.string.mesg_somethingWentWrong, Toast.LENGTH_SHORT).show();

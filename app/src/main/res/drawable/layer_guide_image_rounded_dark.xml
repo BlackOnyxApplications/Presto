@@ -12,7 +12,7 @@
 
             <solid android:color="@color/dark_colorPassive" />
 
-            <stroke android:color="@color/dark_colorSecondary" android:width="2dp" />
+            <stroke android:color="@color/save_green" android:width="2dp" />
         </shape>
     </item>
 </layer-list>

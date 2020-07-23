@@ -3,5 +3,5 @@
     android:id="@+id/selector"
     android:layout_width="24dp"
     android:layout_height="24dp"
-    android:layout_gravity="center"
+    android:layout_gravity="end"
     android:background="?stateSelectedImageRoundedGuiding"/>

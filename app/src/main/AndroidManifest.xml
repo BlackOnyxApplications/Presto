@@ -153,8 +153,7 @@
             android:label="@string/text_changelog" />
         <activity
             android:name=".activity.BarcodeScannerActivity"
-            android:label="@string/text_scanQrCode"
-            android:theme="@style/Theme.TrebleShot.BarcodeScannerActivity" /> <!-- todo: Remember, we are always using dark theme for this for better effects -->
+            android:label="@string/text_scanQrCode"/> <!-- todo: Remember, we are always using dark theme for this for better effects -->
         <activity
             android:name=".activity.WelcomeActivity"
             android:label="@string/text_welcome"

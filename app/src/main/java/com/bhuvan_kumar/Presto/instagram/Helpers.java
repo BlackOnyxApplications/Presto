@@ -10,17 +10,17 @@ public class Helpers {
             throw new IllegalArgumentException("Invalid instagram URL");
         }
 
-        if (!url.contains("instagram.com/p/") && !url.contains("instagram.com/tv/")){
+        if (!url.contains("instagram.com/p/") && !url.contains("instagram.com/tv/") && !url.contains("instagram.com/reel/")){
             throw new IllegalArgumentException("Invalid instagram URL");
         }
 
         if (url.length() <=0){
             throw new IllegalArgumentException("URL parameter cannot be empty");
         }
-
     }
 
     public static boolean isInstagramUrlValid(String url){
+//        https://www.instagram.com/reel/CCsF0_QBXCX/?igshid=xgdyx96tyfsa
         if (url.length() <=0){
             return false;
         }
@@ -30,7 +30,7 @@ public class Helpers {
         if (!(url.startsWith("https://") || url.startsWith("http://"))){
            return false;
         }
-        return url.contains("instagram.com/p/") || url.contains("instagram.com/tv/");
+        return url.contains("instagram.com/p/") || url.contains("instagram.com/tv/") || url.contains("instagram.com/reel/");
     }
 
     public static String mediaType(String fileName){

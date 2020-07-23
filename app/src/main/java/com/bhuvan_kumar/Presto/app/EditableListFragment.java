@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
  import androidx.annotation.Nullable;import androidx.appcompat.widget.SearchView;
 import androidx.collection.ArrayMap;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -795,7 +796,7 @@ abstract public class EditableListFragment<T extends Editable, V extends Editabl
     public static class SelectionCallback<T extends Editable> implements PowerfulActionMode.Callback<T>
     {
         private EditableListFragmentImpl<T> mFragment;
-
+        private boolean isSelectedAll = false;
         public SelectionCallback(EditableListFragmentImpl<T> fragment)
         {
             updateProvider(fragment);
@@ -897,28 +898,38 @@ abstract public class EditableListFragment<T extends Editable, V extends Editabl
             int id = item.getItemId();
 
             if (id == R.id.action_mode_abs_editable_select_all)
-                setSelection(true);
-            else if (id == R.id.action_mode_abs_editable_select_none)
-                setSelection(false);
-            else if (id == R.id.action_mode_abs_editable_preview_selections)
-                new SelectionEditorDialog<>(mFragment.getActivity(), mFragment.getSelectionConnection().getSelectedItemList())
-                        .setOnDismissListener(new DialogInterface.OnDismissListener()
-                        {
-                            @Override
-                            public void onDismiss(DialogInterface dialog)
-                            {
-                                List<T> selectedItems = new ArrayList<>(mFragment.getSelectionConnection().getSelectedItemList());
+                if(isSelectedAll){
+                    isSelectedAll = false;
+                    item.setIcon(ContextCompat.getDrawable(context, R.drawable.ic_select_none));
+                    setSelection(false);
 
-                                for (T selectable : selectedItems)
-                                    if (!selectable.isSelectableSelected())
-                                        mFragment.getSelectionConnection().setSelected(selectable, false);
+                }else{
+                    isSelectedAll = true;
+                    item.setIcon(ContextCompat.getDrawable(context, R.drawable.ic_select_all));
+                    setSelection(true);
+                }
 
-                                // Position cannot be assumed that is why we need to request a refresh
-                                getAdapter().notifyAllSelectionChanges();
-                            }
-
-                        })
-                        .show();
+//            else if (id == R.id.action_mode_abs_editable_select_none)
+//                setSelection(false);
+//            else if (id == R.id.action_mode_abs_editable_preview_selections)
+//                new SelectionEditorDialog<>(mFragment.getActivity(), mFragment.getSelectionConnection().getSelectedItemList())
+//                        .setOnDismissListener(new DialogInterface.OnDismissListener()
+//                        {
+//                            @Override
+//                            public void onDismiss(DialogInterface dialog)
+//                            {
+//                                List<T> selectedItems = new ArrayList<>(mFragment.getSelectionConnection().getSelectedItemList());
+//
+//                                for (T selectable : selectedItems)
+//                                    if (!selectable.isSelectableSelected())
+//                                        mFragment.getSelectionConnection().setSelected(selectable, false);
+//
+//                                // Position cannot be assumed that is why we need to request a refresh
+//                                getAdapter().notifyAllSelectionChanges();
+//                            }
+//
+//                        })
+//                        .show();
 
             return false;
         }

@@ -34,7 +34,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -73,7 +72,7 @@ import java.util.Objects;
  * created by: Bk
  * date: 12/04/18 17:21
  */
-public class BarcodeConnectFragment
+public class BarcodePermissionsFragment
         extends com.genonbeta.android.framework.app.Fragment
         implements TitleSupport, UITask, IconSupport, ConnectionManagerActivity.DeviceSelectionSupport
 {
@@ -89,7 +88,6 @@ public class BarcodeConnectFragment
     private ImageView mTextModeIndicator;
     private RelativeLayout cameraPermission, networkPermission, wifiPermission, locationPermission;
     private Button mTaskInterruptButton;
-    private AppCompatButton cameraButton, networkButton, wifiButton, locationButton;
     private View mTaskContainer;
     private IntentFilter mIntentFilter = new IntentFilter();
     private NetworkDeviceSelectedListener mDeviceSelectedListener;
@@ -165,11 +163,6 @@ public class BarcodeConnectFragment
         locationPermission = view.findViewById(R.id.location_permission);
         wifiPermission = view.findViewById(R.id.wifi_permission);
         networkPermission = view.findViewById(R.id.network_permission);
-
-        cameraButton = view.findViewById(R.id._btn_camera_permission);
-        locationButton = view.findViewById(R.id._btn_location_permission);
-        wifiButton = view.findViewById(R.id._btn_wifi_permission);
-        networkButton = view.findViewById(R.id._btn_network_permission);
 
         mTaskContainer = view.findViewById(R.id.container_task);
         mTaskInterruptButton = view.findViewById(R.id.task_interrupter_button);
@@ -387,7 +380,7 @@ public class BarcodeConnectFragment
 
     protected void makeAcquaintance(Object object, int accessPin)
     {
-        mConnectionUtils.makeAcquaintance(getActivity(), BarcodeConnectFragment.this, object, accessPin, mRegisteredListener);
+        mConnectionUtils.makeAcquaintance(getActivity(), BarcodePermissionsFragment.this, object, accessPin, mRegisteredListener);
     }
 
     public void setDeviceSelectedListener(NetworkDeviceSelectedListener listener)
@@ -439,7 +432,7 @@ public class BarcodeConnectFragment
         if (!state) {
             mBarcodeView.pauseAndWait();
             if(isNetworkEnabled){
-                networkButton.setOnClickListener(new View.OnClickListener()
+                networkPermission.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v)
@@ -449,13 +442,11 @@ public class BarcodeConnectFragment
                     }
                 });
             }else{
-                networkButton.setClickable(false);
-                networkButton.setAlpha(0.4f);
-                networkButton.setText("Done");
+                networkPermission.setClickable(false);
                 networkPermission.setAlpha(0.2f);
             }
             if (!hasCameraPermission) {
-                cameraButton.setOnClickListener(new View.OnClickListener()
+                cameraPermission.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v)
@@ -469,13 +460,11 @@ public class BarcodeConnectFragment
 
                 mPermissionRequestedCamera = true;
             }else{
-                cameraButton.setClickable(false);
-                cameraButton.setAlpha(0.4f);
-                cameraButton.setText("Done");
+                cameraPermission.setClickable(false);
                 cameraPermission.setAlpha(0.2f);
             }
             if (!hasLocationPermission) {
-                locationButton.setOnClickListener(new View.OnClickListener()
+                locationPermission.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v)
@@ -489,17 +478,13 @@ public class BarcodeConnectFragment
 
                 mPermissionRequestedLocation = true;
             }else{
-                locationButton.setClickable(false);
-                locationButton.setAlpha(0.4f);
-                locationButton.setText("Done");
+                locationPermission.setClickable(false);
                 locationPermission.setAlpha(0.2f);
             } if(wifiEnabled){
-                wifiButton.setClickable(false);
-                wifiButton.setAlpha(0.4f);
-                wifiButton.setText("Done");
+                wifiPermission.setClickable(false);
                 wifiPermission.setAlpha(0.2f);
             }else {
-                wifiButton.setOnClickListener(new View.OnClickListener()
+                wifiPermission.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
                     public void onClick(View v)

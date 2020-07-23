@@ -35,7 +35,7 @@
             app:tint="?colorSecondary" />
 
         <include
-            layout="@layout/generic_view_selection_rounded"
+            layout="@layout/generic_view_selection_square"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

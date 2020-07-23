@@ -256,7 +256,6 @@ public class ShareHomeFragment extends Fragment implements IconSupport, TitleSup
     }
     }
 
-
 //    Facebook ads
 private void loadFacebookAd(View view) {
         Context context = getActivity();

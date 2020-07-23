@@ -205,16 +205,15 @@ public class TextStreamListFragment
 
             if (id == R.id.action_mode_text_stream_delete) {
                 AppUtils.getDatabase(getFragment().getContext()).remove(selectionList);
-            } else if (id == R.id.action_mode_share_all_apps || id == R.id.action_mode_share_trebleshot) {
+            } else if (id == R.id.action_mode_share_trebleshot) {
                 if (selectionList.size() == 1) {
                     TextStreamObject streamObject = selectionList.get(0);
 
-                    Intent shareIntent = new Intent(item.getItemId() == R.id.action_mode_share_all_apps
-                            ? Intent.ACTION_SEND : ShareActivity.ACTION_SEND)
+                    Intent shareIntent = new Intent(ShareActivity.ACTION_SEND)
                             .putExtra(Intent.EXTRA_TEXT, streamObject.text)
                             .setType("text/*");
 
-                    getAdapter().getContext().startActivity((item.getItemId() == R.id.action_mode_share_all_apps) ? Intent.createChooser(shareIntent, getFragment().getContext().getString(R.string.text_fileShareAppChoose)) : shareIntent);
+                    getAdapter().getContext().startActivity(shareIntent);
                 } else {
                     Toast.makeText(context, R.string.mesg_textShareLimit, Toast.LENGTH_SHORT).show();
                     return false;

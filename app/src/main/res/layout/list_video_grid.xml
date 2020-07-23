@@ -63,9 +63,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/background_gradient_bottom_dark"
-        android:padding="12dp">
+        android:padding="15dp">
 
         <include layout="@layout/generic_view_selection_rounded_guiding" />
 
